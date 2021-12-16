@@ -1,22 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import logo from '../../utils/images/logo.png';
+import logo_01 from '../../assets/images/Logo_01.png'
 
 const Header = () => {
     return (
         <header className="App-header">
+            <img src={logo_01} alt="Swift Holiday Lighting LLC. logo" className="App-logo"/>
+            <nav>
+                <Link className="nav-link" to="/signup"> Sign up </Link>
+                <Link className="nav-link" to="login"> Login </Link>
+            </nav>
             
-            <div className="">
-                
-                    <h1> Swift Holiday Lighting </h1>
-               
-                {/* <img src={logo} alt="BigCo Inc. logo" className="logo"/> */}
-
-                <nav className="float-right">
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Signup</Link>
-                </nav>
-            </div>
         </header>
     );
 };
