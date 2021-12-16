@@ -30,8 +30,8 @@ const Countdown = () => {
     }, 1000)
         
     return (
-        <div>
-            <p>This is the countdown of your life</p>
+        <div className="countdownHeader">
+            <h3>Days till Christmas</h3>
             <h3 id="demoTime"></h3>
         </div>
     );
