@@ -19,21 +19,25 @@
 
 import React from 'react';
 
+import redBulb from '../../assets/images/red_ledbulb.jpg';
+import greenBulb from '../../assets/images/green_ledbulb.jpg'
+import whiteBulb from '../../assets/images/white_ledbulb.jpg'
+
+
 const Shuffle = () => {
     // turn into object with properties 
-    let lightArr = [1, 2, 3, 4, 5]
-    let lightObjArr = [
+    let lightArr = [
         {
             color: "red",
-            size: "C7"
+            img: redBulb
         },
         {
             color: "green",
-            size: "C7"
+            img: greenBulb
         },
         {
             color: "white",
-            size: "C7"
+            img: whiteBulb
         }
     ]
 
@@ -47,12 +51,23 @@ const Shuffle = () => {
         return array
     }
     
-    arrayShuffle(lightObjArr);
-    console.log(lightObjArr);
+    arrayShuffle(lightArr);
+    console.log(lightArr);
+    
 
     return (
         <div>
-
+            {/* <div>
+                {lightArr.map((light, i) => {
+                    // <h4>{light.color}</h4>
+                    <img
+                        src={light.img}
+                        style={{width:"50px" ,length:"50px"}}
+                    />
+                })}
+            </div> */}
+            
+            <h6>{lightArr[0].img}</h6>
         </div>
     )
 }
