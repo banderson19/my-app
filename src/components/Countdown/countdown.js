@@ -21,7 +21,7 @@ const Countdown = () => {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("demoTime").innerHTML = days + "d " + hours + "h "
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
         
         if (distance < 0) {
@@ -32,7 +32,7 @@ const Countdown = () => {
     return (
         <div className="countdownHeader">
             <h3>Days till Christmas</h3>
-            <h3 id="demoTime"></h3>
+            <h3 id="countdown"></h3>
         </div>
     );
 };
