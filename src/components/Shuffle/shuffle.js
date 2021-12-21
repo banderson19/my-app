@@ -64,7 +64,7 @@ const Shuffle = () => {
         }
     ]
 
-    console.log(patterns)
+
 
     const arrayShuffle = (array) =>  {
         for (var i = array.length -1; i > 0; i--){
@@ -88,13 +88,18 @@ const Shuffle = () => {
     return (
         <div>
             <div className="displayCard">
+                <button>previous</button>
                 <h6>{patterns[0].id}</h6>
+                {patterns.map((pattern, i) => {
+                    
+                })}
                 {patterns[0].pattern.map((result, i) => {
                     console.log(result)
                     return (
                         <img className="lightCard" src={result}/>
                     )
                 })}
+                <button>next</button>
             </div>
             {/* <div>
                 {patterns.map((result, i) => {
