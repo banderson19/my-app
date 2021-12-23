@@ -4,6 +4,7 @@ import React from 'react';
 import Form from '../components/Form/form';
 import Slideshow from '../components/Slideshow/slideshow';
 import Review from '../components/Review/review';
+import Shuffle from '../components/Shuffle/shuffle';
 
 
 const Home = () => {  
