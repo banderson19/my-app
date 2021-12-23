@@ -34,20 +34,38 @@ const Review = (props) => {
     getReviewRating();
     return (
         <div>
+        <section>
+            <div className="form">
             <div>
+                <h3>What do our clients have to say?</h3>
+                {/* average rating */}
+                <div style={{display: "flex", flexDirection: "row"}}>
+                    <h4>Avg Rating:</h4>
+                    <Rating
+                        value={getReviewRating()}
+                        name="rating"
+                        size="medium"
+                        precision={0.5}
+                        readOnly="true" 
+                        style={{}}           
+                        /> 
+                    {/* set customer rating */}
+                </div>
+                <hr></hr>
+                
+            </div>
                 <h3>Write a customer review</h3>
                 <p>share with us your thoughts</p>
                 <form>
                     <label for="name">Enter your name</label>
-                    <input type="text" placeholder="Your name"/>
+                    <input type="text" placeholder="Your Name" name="name" id="name" className="form-input"/>
                     <br></br>
                     <p>remain anonymous</p>
                     <input type="radio" name="trainer-confirm" id="trainer-yes" />
                     <label for="anonymous-yes">Yes</label>
                     <input type="radio" name="trainer-confirm" id="trainer-no" />
                     <label for="anonymous-no">No</label>
-                    <br></br>
-                    <p>rate your experience</p>
+                    <p>Rate your experience</p>
                     <Rating
                         value={value}
                         name="rating"
@@ -59,11 +77,11 @@ const Review = (props) => {
                     /> 
                     <br></br>
                     <label for="review">Write your review  here</label>
-                    <input type="text" placeholder="Your review"/>
+                    <input type="text" placeholder="Your review" name="review" id="review" className="form-input"/>
                 </form>
             </div>
             {/* display reveiws */}
-            <div>
+            <div className="form">
                 {reviews.map(review => (
                     <div>
                         <h3>{review.name}</h3>
@@ -92,6 +110,7 @@ const Review = (props) => {
                 <hr></hr>
                 
             </div>
+        </section>  
         </div>
     )
 }
