@@ -1,0 +1,10 @@
+.review {
+    border: 3px solid #024e76;
+    background-color: #44433e;
+    padding: 20px;
+    width: 500px;
+    color: white;
+    /* position: relative; */
+    bottom: 120px;
+    right: 140px;
+}

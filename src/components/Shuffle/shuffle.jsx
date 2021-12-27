@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, {useState} from 'react';
+import './shuffle.css';
 
 import redBulb from '../../assets/images/red_ledbulb.jpg';
 import greenBulb from '../../assets/images/green_ledbulb.jpg';
@@ -44,6 +45,7 @@ const Shuffle = () => {
 
         let patternIndex = 0;
 
+        const [counter, setCounter] = useState(0)
         // const incrementIndex = () => {
         //     patternIndex ++;
         //     console.log(patternIndex)
@@ -51,18 +53,18 @@ const Shuffle = () => {
         // console.log(patterns[1])
         // console.log('index', patternIndex)
         
-    // const arrayShuffle = (array) =>  {
-    //     for (var i = array.length -1; i > 0; i--){
-    //         const j = Math.floor(Math.random() *  (i + 1));
-    //         const  temp = array[i];
-    //         array[i] = array[j];
-    //         array[j] = temp;
-    //     }
-    //     return array
-    // }
+    const arrayShuffle = (array) =>  {
+        for (var i = array.length -1; i > 0; i--){
+            const j = Math.floor(Math.random() *  (i + 1));
+            const  temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array
+    }
     
-    // arrayShuffle(lightArr);
-    // console.log(lightArr);
+    console.log(arrayShuffle(lightArr));
+    console.log(lightArr);
     // const result = () => lightArr.map(light => {
     //    var color = light.color
     //     return color
@@ -74,7 +76,7 @@ const Shuffle = () => {
         <div>
             <div className="displayCard">
                 <button>previous</button>
-                    {patterns[patternIndex].pattern.map((data) => {
+                    {patterns[counter].pattern.map((data) => {
                         console.log(data)
                         return (
                             <div key={data.id}>
@@ -82,7 +84,12 @@ const Shuffle = () => {
                             </div>
                         )
                     })}
-                <button>next</button>
+                <button onClick={() => {
+                    while(counter < patterns.length) {
+                        setCounter(counter + 1)
+                    }
+                    
+                }}>next</button>
             </div>             
         </div>
     )

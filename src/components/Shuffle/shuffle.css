@@ -1,0 +1,12 @@
+/* SHUFFLE */
+
+.displayCard {
+    display: flex;
+    margin: 5px
+  }
+  
+  .lightCard {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+  }

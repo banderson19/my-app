@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Rating from '@mui/material/Rating';
 
+import './review.css';
+
 
 const Review = (props) => {
     const [value, setValue] = useState(0);
@@ -34,11 +36,11 @@ const Review = (props) => {
     getReviewRating();
     return (
         <div>
-        <section>
-            <div className="form">
+        <section id='review'>
+            <div className="review">
             <div>
-                <h3>What do our clients have to say?</h3>
                 {/* average rating */}
+                <h3>What do our clients have to say?</h3>
                 <div style={{display: "flex", flexDirection: "row"}}>
                     <h4>Avg Rating:</h4>
                     <Rating
@@ -46,8 +48,7 @@ const Review = (props) => {
                         name="rating"
                         size="medium"
                         precision={0.5}
-                        readOnly="true" 
-                        style={{}}           
+                        readOnly="true"            
                         /> 
                     {/* set customer rating */}
                 </div>
@@ -59,22 +60,25 @@ const Review = (props) => {
                 <form>
                     <label for="name">Enter your name</label>
                     <input type="text" placeholder="Your Name" name="name" id="name" className="form-input"/>
-                    <br></br>
-                    <p>remain anonymous</p>
-                    <input type="radio" name="trainer-confirm" id="trainer-yes" />
-                    <label for="anonymous-yes">Yes</label>
-                    <input type="radio" name="trainer-confirm" id="trainer-no" />
-                    <label for="anonymous-no">No</label>
-                    <p>Rate your experience</p>
-                    <Rating
-                        value={value}
-                        name="rating"
-                        size="large"
-                        onChange={(event, newValue) => {
-                            setValue(newValue);
-                        }}
-                        onClick={props.handInputChange}
-                    /> 
+                    <div style={{"display": "flex"}}>
+                        <p style={{"marginRight": "5px"}}>remain anonymous  </p>
+                        <input type="radio" name="anonymous-confirm" id="anonymous-yes" />
+                        <label for="anonymous-yes">Yes</label>
+                        <input type="radio" name="anonymous-confirm" id="anonymous-no" />
+                        <label for="anonymous-no">No</label>
+                    </div>
+                    <div style={{"display": "flex"}}>
+                        <p style={{"marginRight": "5px"}}>Rate your experience</p>
+                        <Rating
+                            value={value}
+                            name="rating"
+                            size="large"
+                            onChange={(event, newValue) => {
+                                setValue(newValue);
+                            }}
+                            onClick={props.handInputChange}
+                        /> 
+                    </div>
                     <br></br>
                     <label for="review">Write your review  here</label>
                     <input type="text" placeholder="Your review" name="review" id="review" className="form-input"/>
@@ -85,7 +89,7 @@ const Review = (props) => {
                 {reviews.map(review => (
                     <div>
                         <h3>{review.name}</h3>
-                        <h4>{review.comment}</h4>
+                        <h6>{review.comment}</h6>
                         <Rating
                            value={review.rating}
                            name="rating"
@@ -93,23 +97,11 @@ const Review = (props) => {
                            precision={0.5}
                            readOnly="true" 
                         /> 
+                        <hr></hr>
                     </div>
                 ))}
             </div>
-
-            <div>
-                {/* average rating */}
-                <Rating
-                    value={getReviewRating()}
-                    name="rating"
-                    size="medium"
-                    precision={0.5}
-                    readOnly="true"            
-                    /> 
-                {/* set customer rating */}
-                <hr></hr>
-                
-            </div>
+            <br></br>
         </section>  
         </div>
     )

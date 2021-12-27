@@ -1,9 +1,10 @@
 import React from 'react';
+import './form.css';
 
 const Form = () => {
     return (
         <div>
-        <section>
+        <section id='form'>
             <div className="form">
               <h3>Get A Free Quote Today</h3>
               <p>Fill out this form and we'll get back to you with in 24 hours</p>
