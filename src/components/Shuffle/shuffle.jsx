@@ -45,7 +45,20 @@ const Shuffle = () => {
 
         let patternIndex = 0;
 
-        const [counter, setCounter] = useState(0)
+        let [index, setIndex] = useState(0)
+        
+        const incrementIndex = (index)  => {
+            setIndex(0)
+        }
+
+        const decrementIndex = (index) => {
+            setIndex(index - 1) 
+        }
+        // setCounter(counter + 1)
+        //             console.log(444, counter)
+        //             if(counter >= patterns.length) {
+        //                 counter = 0;
+        //             }  
         // const incrementIndex = () => {
         //     patternIndex ++;
         //     console.log(patternIndex)
@@ -63,7 +76,7 @@ const Shuffle = () => {
         return array
     }
     
-    console.log(arrayShuffle(lightArr));
+    console.log(arrayShuffle(patterns));
     console.log(lightArr);
     // const result = () => lightArr.map(light => {
     //    var color = light.color
@@ -75,21 +88,17 @@ const Shuffle = () => {
     return (
         <div>
             <div className="displayCard">
-                <button>previous</button>
-                    {patterns[counter].pattern.map((data) => {
-                        console.log(data)
+                <button onClick={() => {decrementIndex(index)}}>previous</button>
+                    {patterns[index].pattern.map((data) => {
+                        console.log('data', data)
+                        console.log('index', index)
                         return (
                             <div key={data.id}>
                                 <img key={data.id} className="lightCard" src={data}/>
                             </div>
                         )
-                    })}
-                <button onClick={() => {
-                    while(counter < patterns.length) {
-                        setCounter(counter + 1)
-                    }
-                    
-                }}>next</button>
+                    })} 
+                <button onClick={() => {incrementIndex(index)}}>next</button>
             </div>             
         </div>
     )
