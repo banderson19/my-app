@@ -24,6 +24,18 @@ const Review = (props) => {
             name: 'Wendy Barlow',
             comment: 'I wanted warm white, but he gave me pure. I made him come back and change all the lights to the correct color',
             rating: 1.5
+        },
+        {
+            id: 4,
+            name: 'Mike Anderson',
+            comment: 'my brother does a great job',
+            rating: 5
+        },
+        {
+            id: 5,
+            name: 'John Smith',
+            comment: 'he does a fantastic job',
+            rating: 5
         }
     ]
     console.log(reviews)
@@ -35,30 +47,24 @@ const Review = (props) => {
     }
     getReviewRating();
     return (
-        <div>
-        <section id='review'>
-            <div className="review">
-            <div>
+        <section id='review' className='reviewSection'>
+            <div className="avgRating">
                 {/* average rating */}
                 <h3>What do our clients have to say?</h3>
-                <div style={{display: "flex", flexDirection: "row"}}>
-                    <h4>Avg Rating:</h4>
+                <hr></hr>
                     <Rating
                         value={getReviewRating()}
                         name="rating"
-                        size="medium"
+                        size="large"
                         precision={0.5}
                         readOnly="true"            
                         /> 
                     {/* set customer rating */}
-                </div>
                 <hr></hr>
-                
             </div>
-                <h3>Write a customer review</h3>
-                <p>share with us your thoughts</p>
+            <div className="review">
+                <h3>Write a review</h3>
                 <form>
-                    <label for="name">Enter your name</label>
                     <input type="text" placeholder="Your Name" name="name" id="name" className="form-input"/>
                     <div style={{"display": "flex"}}>
                         <p style={{"marginRight": "5px"}}>remain anonymous  </p>
@@ -77,33 +83,32 @@ const Review = (props) => {
                                 setValue(newValue);
                             }}
                             onClick={props.handInputChange}
-                        /> 
+                            /> 
                     </div>
                     <br></br>
                     <label for="review">Write your review  here</label>
                     <input type="text" placeholder="Your review" name="review" id="review" className="form-input"/>
                 </form>
             </div>
+            
             {/* display reveiws */}
-            <div className="form">
+            <div className="reviews">
                 {reviews.map(review => (
-                    <div>
-                        <h3>{review.name}</h3>
-                        <h6>{review.comment}</h6>
-                        <Rating
-                           value={review.rating}
-                           name="rating"
-                           size="small"
-                           precision={0.5}
-                           readOnly="true" 
-                        /> 
-                        <hr></hr>
+                    <div className="reviewCard">
+                            <h3>{review.name}</h3>
+                            <h6>{review.comment}</h6>
+                            <Rating
+                            value={review.rating}
+                            name="rating"
+                            size="small"
+                            precision={0.5}
+                            readOnly="true" 
+                            /> 
                     </div>
                 ))}
             </div>
             <br></br>
         </section>  
-        </div>
     )
 }
 

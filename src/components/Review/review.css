@@ -1,10 +1,44 @@
+.reviewSection {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.avgRating {
+    color: White;
+    align-self: center; 
+    align-content: center;
+}
+.avgRating hr {
+    border-top: 5px solid red
+}
+
 .review {
     border: 3px solid #024e76;
     background-color: #44433e;
     padding: 20px;
     width: 500px;
     color: white;
-    /* position: relative; */
     bottom: 120px;
-    right: 140px;
+    align-self: center;
+}
+
+
+.reviews {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.reviewCard {
+    border: 3px solid #024e76;
+    background-color: grey;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-left: 5px;
+    width: 350px;
+    height: inherit;
+    margin-right: 20px;
 }
