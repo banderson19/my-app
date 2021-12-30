@@ -1,5 +1,7 @@
 .reviewSection {
     display: flex;
+    background-image: url("../../assets/images/warmwhitetree.jpeg");
+    background-size: cover;
     flex-direction: column;
     align-content: center;
 }
@@ -23,6 +25,13 @@
     align-self: center;
 }
 
+form p {
+    margin: 5px 0 15px 0;
+}
+
+form label {
+margin: 0 5px;
+}
 
 .reviews {
     display: flex;

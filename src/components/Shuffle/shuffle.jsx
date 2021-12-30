@@ -26,8 +26,6 @@ const Shuffle = () => {
                 pattern: [whiteBulb, greenBulb, whiteBulb]
             }
         ]
-    
-
 
         let [index, setIndex] = useState(0);
         // console.log('index', index)

@@ -7,10 +7,10 @@ const Home = () => {
 
     return (
         <main className="gradient_bg">
-            <Shuffle/>
+            <Form/>
+            {/* <Shuffle/> */}
             <Slideshow/>
             <hr></hr>
-            <Form/>
             <hr></hr>
             <Review/>
         </main>

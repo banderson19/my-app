@@ -3,7 +3,6 @@ import Rating from '@mui/material/Rating';
 
 import './review.css';
 
-
 const Review = (props) => {
     const [value, setValue] = useState(0);
     const reviews = [
@@ -66,15 +65,18 @@ const Review = (props) => {
                 <h3>Write a review</h3>
                 <form>
                     <input type="text" placeholder="Your Name" name="name" id="name" className="form-input"/>
-                    <div style={{"display": "flex"}}>
-                        <p style={{"marginRight": "5px"}}>remain anonymous  </p>
-                        <input type="radio" name="anonymous-confirm" id="anonymous-yes" />
-                        <label for="anonymous-yes">Yes</label>
-                        <input type="radio" name="anonymous-confirm" id="anonymous-no" />
-                        <label for="anonymous-no">No</label>
+                    <div>
+                        <p>remain anonymous
+                            <br></br>  
+                            <input type="radio" name="anonymous-confirm" id="anonymous-yes" />
+                            <label for="anonymous-yes">Yes</label>
+                            <input type="radio" name="anonymous-confirm" id="anonymous-no" />
+                            <label for="anonymous-no">No</label>
+                        </p>
                     </div>
-                    <div style={{"display": "flex"}}>
-                        <p style={{"marginRight": "5px"}}>Rate your experience</p>
+                    <div>
+                        <p>
+                            Rate your experience
                         <Rating
                             value={value}
                             name="rating"
@@ -84,10 +86,10 @@ const Review = (props) => {
                             }}
                             onClick={props.handInputChange}
                             /> 
+                        </p>
                     </div>
-                    <br></br>
                     <label for="review">Write your review  here</label>
-                    <input type="text" placeholder="Your review" name="review" id="review" className="form-input"/>
+                    <textarea type="textarea" row="5" placeholder="Your review" name="review" id="review" className="form-input"/>
                 </form>
             </div>
             

@@ -4,7 +4,7 @@ import logo_06 from '../../assets/images/Logo_06.png'
 import './navbar.css';
 
 const Navbar = () => {
-    return (
+    return (        
         <div className="navbar">
             <div className="navbar-links">
                 <div className="navbar-links_logo">
