@@ -8,7 +8,6 @@ import image2 from '../../assets/images/image2.jpeg';
 import image3 from '../../assets/images/image3.jpeg';
 import image4 from '../../assets/images/image3.jpeg';
 
-
 function Slideshow() {
     const [index, setIndex] = useState(0);
   
@@ -20,7 +19,6 @@ function Slideshow() {
   
     return (
       <div id="slideshow" style= {{"width": "75%"}}>
-
       
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>

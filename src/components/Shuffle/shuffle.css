@@ -1,12 +1,18 @@
 /* SHUFFLE */
 
 .displayCard {
-    display: flex;
-    margin: 5px
-  }
+  display: flex;
+  margin: 5px
+}
   
-  .lightCard {
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-  }
+.lightCard {
+  width: 3.125rem;
+  height: 3.125rem;
+  margin: 5px;
+}
+
+.buttonDisplay {
+  display: flex;
+  margin: auto;
+  align-self: center;
+}
