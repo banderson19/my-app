@@ -12,8 +12,7 @@ const Form = () => {
     <div>
       <section id='form'>
         <div className="contactHeader">
-          <h3>(801) 694 - 2493</h3>
-          <h3>service@swiftholidaylighting.com</h3>
+          <h3>Lets get in touch and figure out <br/> together what looks best for your home</h3>
         </div>
         <div className="contactButton">
           <button variant="primary" onClick={handleShow}>

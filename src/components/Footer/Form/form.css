@@ -1,15 +1,25 @@
 /* form  */
+
+#form {
+  height: 250px;
+  padding-top: 50px;
+}
+
 .contactHeader {
   display: flex;
   flex-direction: row;
+  text-align: center;
 }
 .contactHeader h3 {
-  color: white;
+  color: #F0A500;
+  font-family: "Lucida Console", "Courier New", monospace;
   margin: 10px;
 }
 .contactButton {
   display: flex;
   justify-content: center;
+  font-family: "Lucida Handwriting", "Brush Script MT", cursive;
+
 }
 
 .formHeader {

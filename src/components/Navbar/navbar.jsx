@@ -11,8 +11,8 @@ const Navbar = () => {
                     <img src={logo_06} alt="Swift Holiday Lighting LLC. logo"/>
                 </div>
                 <div className="navbar-links_container">
-                    <p><a href="#form">quote</a></p>
                     <p><a href="#slideshow">Our work</a></p>
+                    <p><a href="#form">quote</a></p>
                     <p><a href="#review">Reviews</a></p>
                 </div>
             </div>            

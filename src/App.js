@@ -11,15 +11,12 @@ function App() {
     <Router>
         <div className="gradient_bg">
           <Navbar/>
-          <div>
-              <Home/>
-              {/* <Route exact path="/login" component={Login}/>
-              <Route exact path="/signup" component={Signup}/>
-              <Route exact path="/profile/:clientName?" component={Profile} />
-              <Route exact path="/ticket/:id" component={SingleTicket} />
-              <Route component={NoMatch} /> */}
-            
-          </div>
+          <Home/>
+          {/* <Route exact path="/login" component={Login}/>
+          <Route exact path="/signup" component={Signup}/>
+          <Route exact path="/profile/:clientName?" component={Profile} />
+          <Route exact path="/ticket/:id" component={SingleTicket} />
+          <Route component={NoMatch} /> */}
           <Footer/>
         </div>
     </Router>

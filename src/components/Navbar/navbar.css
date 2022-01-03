@@ -22,14 +22,16 @@
 
 .navbar-links_container p {
     color: #fff;
-    /* font-family: var(--font-family); */
     font-weight: 500;
     font-size: 18px;
     line-height: 25px;
     text-transform: capitalize;
-
     margin: 0 1rem;
     cursor: pointer;
+}
+
+.navbar-links_container a:link {
+    text-decoration: none;
 }
 
 .navbar-sign {

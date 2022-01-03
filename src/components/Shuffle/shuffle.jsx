@@ -14,6 +14,10 @@ import greenBulb from  '../../assets/images/greenbulb.png';
 import warmBulb from  '../../assets/images/warmbulb.png';
 import blueBulb from  '../../assets/images/bluebulb.png';
 
+// icons
+import left_arrow  from '../../assets/icons/left_arrow.png';
+import right_arrow from '../../assets/icons/right_arrow.png'
+
 
 const Shuffle = () => {
         
@@ -59,7 +63,7 @@ const Shuffle = () => {
         let [index, setIndex] = useState(0);
         
     return (
-        <div style={{"display": "flex", "flexDirection": "column"}}>
+        <div className="shuffleContainer">
             <div className="displayCard">
                     {patterns[index].pattern.map((data) => {
                         return (
@@ -68,10 +72,11 @@ const Shuffle = () => {
                         </div>
                         )
                     })}
+                    <br />
             </div>   
-            <div className="buttonDislay">
-                <button onClick={() => setIndex(index - 1)} disabled={index == 0}>previous</button>
-                <button onClick={() => setIndex(index + 1)} disabled={index == patterns.length-1}>next</button>
+            <div className="buttonDisplay">            
+                <input type="image" src={left_arrow} className="shuffleButton" onClick={() => setIndex(index - 1)} disabled={index === 0}></input>
+                <input type="image" src={right_arrow} className="shuffleButton" onClick={() => setIndex(index + 1)} disabled={index === patterns.length-1}></input>
             </div>          
         </div>
     )

@@ -1,5 +1,10 @@
 /* SHUFFLE */
 
+.shuffleContainer {
+  display: flex;
+  flex-direction: column;
+}
+
 .displayCard {
   display: flex;
   margin: 5px
@@ -12,7 +17,16 @@
 }
 
 .buttonDisplay {
-  display: flex;
-  margin: auto;
-  align-self: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shuffleButton {
+  width: 3rem;
+  height: 3rem;
+}
+
+.shuffleButton:disabled {
+  opacity: .5;
 }
