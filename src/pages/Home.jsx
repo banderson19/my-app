@@ -6,7 +6,7 @@ import  { Shuffle, Slideshow, Form, Review} from '../components/index';
 const Home = () => {  
 
     return (
-        <main className="gradient_bg">
+        <main className="gradient_bg_1">
             <Shuffle/>
             <Slideshow/>
             <Form/>
