@@ -20,7 +20,7 @@ function Slideshow() {
     // const images = [image1, image2, image3, image4];
   
     return (
-      <div id="slideshow" style= {{"width": "75%"}}>
+      <div id="slideshow">
       
       <Carousel activeIndex={index} onSelect={handleSelect}>
         <Carousel.Item>

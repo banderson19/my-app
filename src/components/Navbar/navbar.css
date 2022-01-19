@@ -4,6 +4,13 @@
     align-items: center;
 }
 
+.navbar.active {
+    margin-bottom: 100px;
+    transition: .75s ease-in-out ;
+    background-color: #37383a;
+    position: fixed;
+  }
+
 .navbar-links {
     flex: 1;
     display: flex;
@@ -14,6 +21,12 @@
 .navbar-links_logo img{
     width: 400px;
 }
+
+@media (max-width: 500px) {
+    .navbar-links_logo img {
+      width: 200px;
+    }
+  }
 
 .navbar-links_container  {
     display: flex;

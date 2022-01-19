@@ -46,7 +46,7 @@ const Review = (props) => {
     }
     getReviewRating();
     return (
-        <section id='review' className='reviewSection'>
+        <section id='review' className='reviewSection container'>
             <div className="avgRating">
                 {/* average rating */}
                 <h3>What do our clients have to say?</h3>
