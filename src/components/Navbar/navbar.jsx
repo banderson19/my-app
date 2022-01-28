@@ -31,9 +31,6 @@ const Navbar = () => {
                             <a className="nav-link" href="#slideshow">Our work</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#form">Quote</a>
-                        </li>
-                        <li className="nav-item">
                             <a className="nav-link" href="#review">Reviews</a>
                         </li>
                     </ul>

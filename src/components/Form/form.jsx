@@ -11,12 +11,9 @@ const Form = () => {
   return (
     <div>
       <section id='form'>
-        <div className="contactHeader">
-          <h3>Lets get in touch and figure out <br/> together what looks best for your home</h3>
-        </div>
         <div className="contactButton">
-          <button variant="primary" onClick={handleShow}>
-            Request a quote
+          <button className="btn" onClick={handleShow}>
+            Free Quote
           </button>
         </div>
         </section>
@@ -26,11 +23,9 @@ const Form = () => {
           backdrop="static"
           keyboard={false}
         >
-          <Modal.Header className="formHeader" closeButton>
-            <Modal.Title>Get in contact with us</Modal.Title>
-          </Modal.Header>
           <Modal.Body className="form">
             <div>
+              <h3> Get in contact with us</h3>
               <p>Fill out this form and we'll get back to you with in 24 hours</p>
               <form>
                 <label for="name">Enter full name:</label>
