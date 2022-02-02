@@ -26,12 +26,23 @@
 }
 
 form p {
+    font-family:'Times New Roman', Times, serif;
     margin: 5px 0 15px 0;
 }
 
 form label {
-margin: 0 5px;
+    margin: 0 5px;
 }
+
+form h3 {
+    font-size: 24px;
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+  }
+form label {
+    margin: 0 5px;
+    font-family:'Times New Roman', Times, serif;
+  }
 
 .reviews {
     display: flex;

@@ -1,7 +1,7 @@
 import React from 'react';
-import './header.css';
+import './contact.css';
 
-const Header = () => {
+const Contact = () => {
   return (
       <div id="contact" className="container">
         <div>
@@ -26,4 +26,4 @@ const Header = () => {
   ) 
 };
 
-export default Header;
+export default Contact;

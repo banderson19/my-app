@@ -5,4 +5,4 @@ export { default as  Navbar } from './Navbar/navbar.jsx';
 export { default as  Review } from './Review/review.jsx';
 export { default as  Shuffle } from './Shuffle/shuffle.jsx';
 export { default as  Slideshow } from './Slideshow/slideshow.jsx';
-export { default as  Header } from './Header/header.jsx';
+export { default as  Contact } from './Contact/contact.jsx';

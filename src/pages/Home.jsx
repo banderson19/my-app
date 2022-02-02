@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Shuffle, Slideshow, Form, Review, Header } from '../components/index';
+import { Navbar, Shuffle, Slideshow, Form, Review, Contact } from '../components/index';
 
 
 
@@ -8,7 +8,7 @@ const Home = () => {
         <main className="gradient_bg2">
             <Navbar />
             <Slideshow />
-            <Header />
+            <Contact />
             <Shuffle/>
             <Form />
             <Review />

@@ -79,9 +79,9 @@ const Review = (props) => {
             <div className="review">
                 <h3>Write a review</h3>
                 <form ref={reviewForm} name="review-form" onSubmit={sendEmail}>
-                    <input for="reviewers_name" type="text" placeholder="Your Name" name="reviewers_name" id="reviewers_name" className="form-input"/>
+                    <input for="reviewers_name" type="text" placeholder="Name" name="reviewers_name" id="reviewers_name" className="form-input"/>
                     <div>
-                        <p>remain anonymous
+                        <p>Remain anonymous
                             <br></br>  
                             <input type="radio" name="anonymous-yes" id="anonymous-yes" />
                             <label for="anonymous-yes">Yes</label>
@@ -91,7 +91,7 @@ const Review = (props) => {
                     </div>
                     <div>
                         <p>
-                            Rate your experience
+                            Rate Experience
                         <Rating
                             value={value}
                             name="reviewers_rating"
@@ -106,8 +106,8 @@ const Review = (props) => {
 
                         </p>
                     </div>
-                    <label >Write your review  here</label>
-                    <textarea type="textarea" row="5" placeholder="Your review" name="reviewers_review" id="reviewers_review" className="form-input"/>
+                    
+                    <textarea type="textarea" row="5" placeholder="Review" name="reviewers_review" id="reviewers_review" className="form-input"/>
                     <button className="reviewButton" variant="secondary" type="submit">Submit Review</button>
                 </form>
             </div>
