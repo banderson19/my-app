@@ -1,6 +1,6 @@
 import React from 'react';
 import Particles from "react-tsparticles";
-import { Navbar, Shuffle, Slideshow, Form, Review } from '../components/index';
+import { Navbar, Shuffle, Slideshow, Form, Review, Header } from '../components/index';
 
 
 
@@ -92,9 +92,10 @@ const Home = () => {
             />
 
             <Navbar />
+            <Header />
+            <Shuffle/>
             <Slideshow />
             <Form />
-            {/* <Shuffle/> */}
             <Review />
         </main>
     );

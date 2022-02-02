@@ -61,6 +61,7 @@ const Review = (props) => {
                     {/* set customer rating */}
                 <hr></hr>
             </div>
+          
             <div className="review">
                 <h3>Write a review</h3>
                 <form>
