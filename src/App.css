@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: #37383a;
+  box-sizing: border-box;
 }
 
 .App-header {

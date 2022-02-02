@@ -1,5 +1,6 @@
-.header {
-    z-index: 2;
+#contact {
+    margin-top: -100px;
+    padding-top: 130px;
 }
 h1 {
     font-family: 'Lucida Handwriting', cursive;
@@ -10,10 +11,6 @@ h3 {
 h5 {
     font-family: 'Lucida Console'
 }
-
-/* .contact {
-    color: #FF4B5C
-} */
 
 
 

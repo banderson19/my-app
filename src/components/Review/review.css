@@ -1,9 +1,9 @@
 .reviewSection {
     display: flex;
-    padding-top: 50px;
+    margin-top: -100px;
     flex-direction: column;
     align-content: center;
-    z-index: 1;
+    padding-top: 140px;
 }
 
 .avgRating {
@@ -51,3 +51,13 @@ margin: 0 5px;
     height: inherit;
     margin-right: 20px;
 }
+
+.reviewButton {
+    color: #F0A500;
+    background-color: #024e76;
+    border: none;
+    padding: 10px 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: 5px;
+  }

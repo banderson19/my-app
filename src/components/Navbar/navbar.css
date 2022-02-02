@@ -5,10 +5,8 @@
 }
 
 .navbar.active {
-    margin-bottom: 100px;
     transition: .75s ease-in-out ;
     background-color: #37383a;
-    position: fixed;
   }
 
 .navbar-links {

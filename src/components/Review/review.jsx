@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Rating from '@mui/material/Rating';
-
+import emailjs from '@emailjs/browser';
 import './review.css';
 
 const Review = (props) => {
@@ -45,6 +45,20 @@ const Review = (props) => {
         return avgRating
     }
     getReviewRating();
+
+    const reviewForm = useRef();
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_fq20s67', 'template_h3aodbb', reviewForm.current, 'user_quMpabUl8g3DFCCR8Dwln')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+        const frm = document.getElementsByName('review-form')[0];
+        frm.reset();
+    };
     return (
         <section id='review' className='reviewSection container'>
             <div className="avgRating">
@@ -64,14 +78,14 @@ const Review = (props) => {
           
             <div className="review">
                 <h3>Write a review</h3>
-                <form>
-                    <input type="text" placeholder="Your Name" name="name" id="name" className="form-input"/>
+                <form ref={reviewForm} name="review-form" onSubmit={sendEmail}>
+                    <input for="reviewers_name" type="text" placeholder="Your Name" name="reviewers_name" id="reviewers_name" className="form-input"/>
                     <div>
                         <p>remain anonymous
                             <br></br>  
-                            <input type="radio" name="anonymous-confirm" id="anonymous-yes" />
+                            <input type="radio" name="anonymous-yes" id="anonymous-yes" />
                             <label for="anonymous-yes">Yes</label>
-                            <input type="radio" name="anonymous-confirm" id="anonymous-no" />
+                            <input type="radio" name="anonymous-no" id="anonymous-no" />
                             <label for="anonymous-no">No</label>
                         </p>
                     </div>
@@ -80,17 +94,21 @@ const Review = (props) => {
                             Rate your experience
                         <Rating
                             value={value}
-                            name="rating"
+                            name="reviewers_rating"
                             size="large"
                             onChange={(event, newValue) => {
                                 setValue(newValue);
+                                console.log(newValue);
                             }}
                             onClick={props.handInputChange}
-                            /> 
+                            for='reviewers_rating'
+                            />
+
                         </p>
                     </div>
-                    <label for="review">Write your review  here</label>
-                    <textarea type="textarea" row="5" placeholder="Your review" name="review" id="review" className="form-input"/>
+                    <label >Write your review  here</label>
+                    <textarea type="textarea" row="5" placeholder="Your review" name="reviewers_review" id="reviewers_review" className="form-input"/>
+                    <button className="reviewButton" variant="secondary" type="submit">Submit Review</button>
                 </form>
             </div>
             
