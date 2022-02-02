@@ -63,7 +63,7 @@ const Shuffle = () => {
         let [index, setIndex] = useState(0);
         
     return (
-        <div className="shuffleContainer bg-dark">
+        <div className="shuffleContainer ">
             <div className="displayCard">
                     {patterns[index].pattern.map((data) => {
                         return (

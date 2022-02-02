@@ -52,3 +52,12 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+.nav-contact {
+    color: #FF4B5C;
+}
+
+.nav-contact li {
+    list-style-type: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

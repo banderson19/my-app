@@ -31,6 +31,28 @@
   background:radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%);
 }
 
+.gradient_bg2 {
+
+  /* ff 3.6+ */
+  background:-moz-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%); 
+
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
+
+  /* opera 11.10+ */
+  background:-o-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
+
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF4B5C', endColorstr='#002853', GradientType=1 );
+
+  /* ie 10+ */
+  background:-ms-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
+
+  /* global 94%+ browsers support */
+  background:linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
+
+}
+
 
 #tsparticles {
   position: absolute;

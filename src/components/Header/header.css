@@ -1,9 +1,19 @@
 .header {
     z-index: 2;
-    padding-top: 10%;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 5%;
-    color:  #F0A500
 }
+h1 {
+    font-family: 'Lucida Handwriting', cursive;
+}
+h3 {
+    font-family: 'Lucida Console'
+}
+h5 {
+    font-family: 'Lucida Console'
+}
+
+/* .contact {
+    color: #FF4B5C
+} */
+
+
 
