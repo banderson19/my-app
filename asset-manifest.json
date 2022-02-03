@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.e251798b.chunk.css",
+    "main.js": "/my-app/static/js/main.9e5c7506.chunk.js",
+    "main.js.map": "/my-app/static/js/main.9e5c7506.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.597a8233.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.597a8233.js.map",
+    "static/css/2.8d6ca804.chunk.css": "/my-app/static/css/2.8d6ca804.chunk.css",
+    "static/js/2.a5656711.chunk.js": "/my-app/static/js/2.a5656711.chunk.js",
+    "static/js/2.a5656711.chunk.js.map": "/my-app/static/js/2.a5656711.chunk.js.map",
+    "static/js/3.23ee9235.chunk.js": "/my-app/static/js/3.23ee9235.chunk.js",
+    "static/js/3.23ee9235.chunk.js.map": "/my-app/static/js/3.23ee9235.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "static/css/2.8d6ca804.chunk.css.map": "/my-app/static/css/2.8d6ca804.chunk.css.map",
+    "static/css/main.e251798b.chunk.css.map": "/my-app/static/css/main.e251798b.chunk.css.map",
+    "static/js/2.a5656711.chunk.js.LICENSE.txt": "/my-app/static/js/2.a5656711.chunk.js.LICENSE.txt",
+    "static/media/Logo_06.cb2e2ff0.png": "/my-app/static/media/Logo_06.cb2e2ff0.png",
+    "static/media/bluebulb.e7399e27.png": "/my-app/static/media/bluebulb.e7399e27.png",
+    "static/media/greenbulb.17b2944c.png": "/my-app/static/media/greenbulb.17b2944c.png",
+    "static/media/image2.aacd6385.jpeg": "/my-app/static/media/image2.aacd6385.jpeg",
+    "static/media/image3.ac215f70.jpeg": "/my-app/static/media/image3.ac215f70.jpeg",
+    "static/media/image4.0e8c701a.jpeg": "/my-app/static/media/image4.0e8c701a.jpeg",
+    "static/media/image5.ee0229b0.jpeg": "/my-app/static/media/image5.ee0229b0.jpeg",
+    "static/media/image6.97d966f0.jpeg": "/my-app/static/media/image6.97d966f0.jpeg",
+    "static/media/left_arrow.c305ea36.png": "/my-app/static/media/left_arrow.c305ea36.png",
+    "static/media/redbulb.3e98b9aa.png": "/my-app/static/media/redbulb.3e98b9aa.png",
+    "static/media/right_arrow.c4ad823c.png": "/my-app/static/media/right_arrow.c4ad823c.png",
+    "static/media/warmbulb.f9d1daba.png": "/my-app/static/media/warmbulb.f9d1daba.png",
+    "static/media/whitebulb.d30ca94a.png": "/my-app/static/media/whitebulb.d30ca94a.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.597a8233.js",
+    "static/css/2.8d6ca804.chunk.css",
+    "static/js/2.a5656711.chunk.js",
+    "static/css/main.e251798b.chunk.css",
+    "static/js/main.9e5c7506.chunk.js"
+  ]
+}
