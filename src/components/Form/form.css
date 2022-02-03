@@ -1,0 +1,65 @@
+/* form  */
+
+.contactButton {
+  display: flex;
+  background-color: #FF4B5C;
+  border: 1px solid #F0A500;
+  justify-content: center;
+  font-family: "Lucida Console", monospace;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+}
+
+.formHeader {
+    border: 3px solid #FF4B5C;
+    background-color: #44433e;
+    padding: 20px;
+    width: 100%;
+    color: white;
+}
+.form {
+    border: 3px solid #FF4B5C;
+    background-color: #44433e;
+    padding: 20px;
+    width: 100%;
+    color: white;
+  }
+  
+  .form h3 {
+    font-size: 24px;
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+  }
+  .form p {
+    margin: 5px 0 15px 0;
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+  .form-input {
+    border: 2px solid #024e76;
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    font-family:'Times New Roman', Times, serif;
+    color: #024e76;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .form label {
+    margin: 0 5px;
+    font-family:'Times New Roman', Times, serif;
+  }
+  
+  .form button {
+    color: #F0A500;
+    background-color: #024e76;
+    border: none;
+    padding: 10px 20px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 16px;
+    margin: 5px;
+  }
+

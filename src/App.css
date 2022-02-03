@@ -1,61 +1,40 @@
 .App {
   text-align: center;
+  background-color: #37383a;
+  /* box-sizing: border-box; */
 }
 
 .App-header {
   background-color: #37383a;
   min-height: 100px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
-  color: Red;
+}
+.App-logo {
+  width: 400px;
 }
 
-.countdownHeader {
-  text-align: center;
-}
+.gradient_bg {
 
-/* form  */
-.hero-form {
-  border: 3px solid #024e76;
-  background-color: #44433e;
-  padding: 20px;
-  width: 500px;
-  color: white;
-  /* position: relative; */
-  bottom: 120px;
-  right: 140px;
-}
+  /* ff 3.6+ */
+  background:-moz-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%); 
 
-.hero-form h3 {
-  font-size: 24px;
-  margin: 0;
-}
-.hero-form p {
-  margin: 5px 0 15px 0;
-}
+  /* safari 5.1+,chrome 10+ */
+  background:-webkit-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
 
-.form-input {
-  border: 1px solid #024e76;
-  display: block;
-  padding: 7px 15px;
-  font-size: 16px;
-  color: #024e76;
-  width: 80%;
-  margin-bottom: 15px;
-}
+  /* opera 11.10+ */
+  background:-o-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
 
-.hero-form label {
-  margin: 0 5px;
-}
+  /* ie 6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF4B5C', endColorstr='#002853', GradientType=1 );
 
-.hero-form button {
-  color: #fce138;
-  background-color: #024e76;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  /* ie 10+ */
+  background:-ms-linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
+
+  /* global 94%+ browsers support */
+  background:linear-gradient(216deg, rgba(0, 40, 83, 1) 40%, rgba(255, 75, 92, 1) 100%);
+
 }
 

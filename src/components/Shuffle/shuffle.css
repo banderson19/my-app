@@ -1,0 +1,57 @@
+/* SHUFFLE */
+
+.shuffleContainer {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  width: 100%;
+  
+}
+
+.displayCard {
+  display: flex;
+  margin: 5px;
+  justify-content: center;
+}
+  
+.lightCard {
+  width: 3.125rem;
+  height: 3.125rem;
+  margin: 5px;
+}
+
+.buttonDisplay {
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shuffleButton {
+  width: 3rem;
+  height: 3rem;
+}
+
+.shuffleButton:disabled {
+  opacity: .5;
+}
+
+
+@media (max-width: 990px) {
+  .lightCard {
+    width: 2.125rem;
+    height: 2.125rem;
+    margin: 5px;
+  }
+  .shuffleButton {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .lightCard {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin: 5px;
+  }
+}
