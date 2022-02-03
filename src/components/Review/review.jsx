@@ -20,7 +20,7 @@ const Review = (props) => {
         },
         {
             id: 3,
-            name: 'Wendy Barlow',
+            name: 'Wes Nesquick',
             comment: 'I wanted warm white, but he gave me pure. I made him come back and change all the lights to the correct color',
             rating: 1.5
         },
@@ -32,7 +32,7 @@ const Review = (props) => {
         },
         {
             id: 5,
-            name: 'John Smith',
+            name: 'Jake Kelly',
             comment: 'he does a fantastic job',
             rating: 5
         }

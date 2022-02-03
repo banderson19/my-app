@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Shuffle, Slideshow, Form, Review, Contact } from '../components/index';
+import { Navbar, Shuffle, Slideshow, Form, Review, Contact, Footer } from '../components/index';
 
 
 
@@ -12,6 +12,7 @@ const Home = () => {
             <Shuffle/>
             <Form />
             <Review />
+            <Footer />
         </main>
     );
 };

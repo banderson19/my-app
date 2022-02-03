@@ -3,7 +3,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Navbar, Footer} from './components/index';
+import {Footer} from './components/index';
 import Home  from './pages/Home.jsx';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <Router>
         <div>
           <Home/>
-          <Footer/>
+          
         </div>
     </Router>
   );
