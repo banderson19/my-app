@@ -5,7 +5,7 @@ import { Navbar, Shuffle, Slideshow, Form, Review, Contact } from '../components
 
 const Home = () => {
     return (
-        <main className="gradient_bg2">
+        <main className="gradient_bg">
             <Navbar />
             <Slideshow />
             <Contact />

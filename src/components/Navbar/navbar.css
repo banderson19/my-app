@@ -20,7 +20,7 @@
     width: 400px;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .navbar-links_logo img {
       width: 200px;
     }
@@ -58,4 +58,5 @@
 .nav-contact li {
     list-style-type: none;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+} 
+
