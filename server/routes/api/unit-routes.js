@@ -1,8 +1,20 @@
 const router = require('express').Router();
-const { addUnit } = require('../../controllers/unit-controller');
+const { getAllUnit, getUnitById, addUnit, updateUnit, deleteUnit } = require('../../controllers/unit-controller');
 
-//add unit to  client
+
+// /api/units/
+// router.route('/').get(getAllUnit);
+
+// /api/units/<unitId>
+// router.route('/:unitId').get(getUnitById);
+
+// /api/units/<clientId>
 router.route('/:clientId').post(addUnit);
+
+// /api/units/<clientId>/<unitId>
+router.route('/:clientId/:unitId').delete(deleteUnit).put(updateUnit);
+    
+
 
 module.exports = router;
 

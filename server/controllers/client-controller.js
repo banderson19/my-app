@@ -19,6 +19,10 @@ const clientController = {
     // get on client by id
     getClientById({ params }, res) {
         Client.findOne({ _id: params.id })
+            .populate({
+                path: 'units',
+                select: '-__v'
+            })
             .then(dbClientData => {
                 // If no pizza is found, send 404
                 if (!dbClientData) {
