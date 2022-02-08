@@ -1,3 +1,4 @@
 const Client = require('./Client');
+const Unit = require('./Unit');
 
-module.exports = { Client}
+module.exports = { Client, Unit}

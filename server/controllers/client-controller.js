@@ -4,6 +4,12 @@ const clientController = {
     // get all clients
     getAllClient(req, res) {
         Client.find({})
+            .populate({
+                path: 'units',
+                select: '-__v'
+            })
+            .select('-__v')
+            .sort({_id:-1})
             .then(dbClientData => res.json(dbClientData))
             .catch(err => {
                 console.log(err);

@@ -13,8 +13,15 @@ const UnitSchema = new Schema({
     footage: {
         type: String
     },
-    description: {
+    unitDescription: {
+        type: String
+    },
+    notes: {
         type: String
     },
     colorPattern: []
 })
+
+const Unit = model('Unit', UnitSchema);
+
+module.exports = Unit;
