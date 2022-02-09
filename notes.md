@@ -1,15 +1,39 @@
 ** Tasks to do **
 
-HOME PAGE
-* customize buttons
-* adjust bulb size and extend width of page
-* have reviews sent to email
-* have quote sent to email
-* change photos for carousel
+# Development 2.0
+
+## client side
+* change domain
+* change chrome tab logo
+* add another feature
+* integrate client messaging app through podium
+* Update Readme
+* add more  photos or alternative to carousel
 
 
+## server side 1.0
+* CRUD clients
+* CRUD Units
+* Clients Aquired
 
-LITERATURE
-* No matter what happens in the world we can count santa coming every year and hopefully a white christmas. We want to guarantee the most magical christmas for you and have having lights adds to the extra cheer and a special experience 
 
-socket color: #A08D8D
+## Clients table
+* The name of the Client
+* A timestamp of when the Client was created
+* A timestamp of any updates to the Client's data
+* The Client's home size 
+* The Client's home description
+
+
+### 2.0
+* Send invoice
+* Keep track of expenses
+* track miles
+
+
+melissa unit id
+6202c3740fdff76f54e8d527
+
+client melissa id
+6202c25e0fdff76f54e8d525
+

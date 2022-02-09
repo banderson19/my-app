@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link} from 'react-router-dom';
+
 import logo_06 from '../../assets/images/Logo_06.png'
 import './navbar.css';
 
@@ -34,6 +36,9 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link" href="#review">Reviews</a>
+                        </li>
+                        <li className="nav-item">
+                            <Link to="/dashboard">Dashboard</Link>
                         </li>
                     </ul>
                 </div>
