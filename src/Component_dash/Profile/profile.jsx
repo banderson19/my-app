@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams, useLocation} from 'react-router-dom';
 import Header from '../Header/header.jsx';
 
 
-const profile = () => {
+const Profile = (props) => {
+    // console.log('333', this.props.state)
+    // const {id } = useParams();
+    // const location = useLocation();
+    // const {fromClientList} = location.state;
+    // console.log('222',id)
+    // console.log(location)
+    // console.log(this.state.client)
     return (
         <div>
             <div>
@@ -69,4 +76,4 @@ const profile = () => {
     )
 };
 
-export default profile;
+export default Profile;

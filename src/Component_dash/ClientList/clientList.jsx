@@ -1,45 +1,59 @@
-import React from 'react';
-import { Link} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './clientList.css';
 
-const clientList = () => {
-  return (
-    <div className="container">
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Notes</th>
-                <th>Client Acquired</th>
-            </tr>
-            <tr>
-                <td>
-                    <Link to="/clientList/profile">Jake Kelly</Link>
-                </td>
-                <td>(801) 555 - 5555</td>
-                <td>new home being built next year</td>
-                <td>10/10/2018</td>
-            </tr>
-            <tr>
-                <td>
-                    <Link to="/clientList/profile">Jake Kelly</Link>
-                </td>
-                <td>(801) 555 - 5555</td>
-                <td>new home being built next year</td>
-                <td>10/10/2018</td>
-            </tr>
-            <tr>
-                <td>
-                    <Link to="/clientList/profile">Jake Kelly</Link>
-                </td>
-                <td>(801) 555 - 5555</td>
-                <td>new home being built next year</td>
-                <td>10/10/2018</td>
-            </tr>
+export default class ClientList extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { clientList: [] }
+    }
 
-        </table>
-    </div>
-  )
+    componentWillMount() {
+        console.log('hello')
+        axios.get('http://localhost:3001/api/clients')
+            .then(response => {
+                this.setState({ clientList: response.data})
+            })
+            .catch(err => {
+                console.log('error', err)
+            });
+    };    
+
+    render() {
+        console.log('111', this.state.clientList)
+        return (
+            <div className="container">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Notes</th>
+                        <th>Client Acquired</th>
+                    </tr>
+                    <tbody>
+                        {this.state.clientList.map((client, i) => {
+                            return (
+                                <tr>
+                                    <td>
+                                        <Link to="/clientList/profile" params={{testValue: "hello"}}>{client.firstName} {client.lastName}</Link>
+                                    </td>
+                                    <td>
+                                        {client.phoneNumber}
+                                    </td>
+                                    <td>
+                                        {client.notes}
+                                    </td>
+                                    <td>
+                                        {client.clientAcquired}
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table> 
+            </div>
+        )
+    }
 };
 
-export default clientList;
