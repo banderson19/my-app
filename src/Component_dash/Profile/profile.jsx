@@ -1,55 +1,72 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../Header/header.jsx';
 
 
 const profile = () => {
     return (
         <div>
-            <Header/>
-        
-        <div className="container">
-            <Link to="/dashboard">
-                <button>Client List</button>
-            </Link>
             <div>
-                <h3>Jake kelly</h3>
-                <h3>Contact Info</h3>
+                <Header />
+                <Link to="/dashboard">
+                    <button>Client List</button>
+                </Link>
             </div>
-
             <div className="container">
                 <div className="row">
-                    <h3 className="col">Street</h3>
-                </div>
-                <div className="row">
-                    <h3 className="col">city</h3>
-                </div>
-                <div className="row">
-                    <h3 className="col">zip</h3>
-                </div>
-                <div className="row">
-                    <h3 className="col">notes</h3>
-                </div>
-                <div className="row">
-                    <h3 className="col">footage</h3>
+                    <div className="card col" style={{ width: "400px" }}>
+                        <h3 className="card-header">Jake Kelly</h3>
+                        <h3 className="card-body">Phone Number</h3>
+                    </div>
+                    <div className="col">
+                        <h6>Date Acquired: 10/10/18</h6>
+                        <div>
+                            <h5>Notes: </h5>
+                            <h6>Quoted at $3/foot</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div className="container">
-                <div className="row">
-                    <h3 className="col">Unit description</h3>
+                <div className='row'>
+
+                <div className="col">
+                    <div className="row">
+                        <h3 className="">Street</h3>
+                    </div>
+                    <div className="row">
+                        <h3 className="">city</h3>
+                    </div>
+                    <div className="row">
+                        <h3 className="">zip</h3>
+                    </div>
+                    <div className="row">
+                        <h3 className="">notes</h3>
+                    </div>
+                    <div className="row">
+                        <h3 className="">footage</h3>
+                    </div>
                 </div>
-                <div className="row">
-                    <h3 className="col">Notes</h3>
+
+                <div className="col">
+
+                    <div className="row">
+                        <h3 className="row">Unit description:</h3>
+                        <h6>Home is getting built next year</h6>
+                    </div>
+                    <div className="row">
+                        <h3 className="row">Notes</h3>
+                    </div>
+                    <div className="row">
+                        <h3 className="row">Color Pattern</h3>
+                        <h6>warm white, red</h6>
+
+                    </div>
                 </div>
-                <div className="row">
-                    <h3 className="col">Color Pattern</h3>
                 </div>
             </div>
-
         </div>
-        </div>
-    ) 
+    )
 };
 
 export default profile;
