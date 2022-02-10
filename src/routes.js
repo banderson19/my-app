@@ -10,7 +10,7 @@ export default (
         <Route path="/" element={<Home />} /> 
         <Route path="/dashboard" element={<Dashboard />} /> 
         <Route path="/dashboard/clientList" element={<ClientList />} /> 
-        <Route path="/clientList/:id" element={<Profile />} /> 
+        <Route path="/profile/:clientId" element={<Profile />} /> 
     </Routes>
 );
 

@@ -33,10 +33,11 @@ export default class ClientList extends Component {
                     </tr>
                     <tbody>
                         {this.state.clientList.map((client, i) => {
+                            console.log(client._id)
                             return (
                                 <tr>
                                     <td>
-                                        <Link to="/clientList/profile" params={{testValue: "hello"}}>{client.firstName} {client.lastName}</Link>
+                                        <Link to={{pathname: `/profile/${client._id}`, ojb: {client}}}>{client.firstName} {client.lastName}</Link>
                                     </td>
                                     <td>
                                         {client.phoneNumber}

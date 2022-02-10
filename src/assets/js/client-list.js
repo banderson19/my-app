@@ -1,13 +1,11 @@
-const getClientList = () => {
-    fetch('/api/clients')
-      .then(response => response.json())
-      .then(clientListArr => {
-          console.log(clientListArr)
-        // clientListArr.forEach(printPizza);
+const getClient = (id) => {
+    fetch(`/api/clients/${id}`)
+      .then(response =>  {
+        console.log(response)
       })
       .catch(err => {
         console.log(err);
       });
   };
 
-  getClientList();
+  export default getClient;
