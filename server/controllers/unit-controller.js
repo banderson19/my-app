@@ -22,7 +22,6 @@ const unitController = {
       })
       .catch(err => res.json(err));
   },
-
   // update unit
   updateUnit({ params, body }, res) {
     Unit.findOneAndUpdate({ _id: params.unitId }, body, { new: true })

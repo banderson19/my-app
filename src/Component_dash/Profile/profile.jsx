@@ -1,19 +1,21 @@
-import { render } from '@testing-library/react';
 import React, { useState } from 'react';
+
 import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/header.jsx';
+import UnitList from '../UnitList/unitList.jsx';
 
 const Profile = () => {
     const { clientId } = useParams();
     console.log("clientid", clientId)
 
+    // desructure this
+    // const [clientId, setClientId] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [note, setNote] = useState('')
     const [date, setDate] = useState('')
-    const [unit, setUnit] = useState([])
 
     const getUser = () => {
         console.log('hello')
@@ -21,21 +23,19 @@ const Profile = () => {
             .then(response => response.data)
             .then(response => {
                 console.log('info', response)
-                // console.log('unit', response.units)
+                // setClientId(response._id)
                 setFirstName(response.firstName)
                 setLastName(response.lastName)
                 setPhoneNumber(response.phoneNumber)
                 setNote(response.note);
                 setDate(response.clientAcquired);
-                // setUnit(response.units)
             })
             .catch(err => {
                 console.log('error', err)
             });
-            // console.log('name', this.state.firstName)
     };
     getUser();
-    console.log('clientInfo', firstName, lastName, phoneNumber, note, date)
+
     return (
         <div>
             <div>
@@ -45,7 +45,7 @@ const Profile = () => {
                 </Link>
             </div>
             <div className="container">
-                <div className="row">
+                 <div className="row">
                     <div className="card col" style={{ width: "400px" }}>
                         <h3 className="card-header">{firstName} {lastName}</h3>
                         <h3 className="card-body">{phoneNumber}</h3>
@@ -59,46 +59,9 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <div className="container">
-                <div className='row'>
-
-                    <div className="col">
-                        <div className="row">
-                            <h3 className="">Street</h3>
-                        </div>
-                        <div className="row">
-                            <h3 className="">city</h3>
-                        </div>
-                        <div className="row">
-                            <h3 className="">zip</h3>
-                        </div>
-                        <div className="row">
-                            <h3 className="">notes</h3>
-                        </div>
-                        <div className="row">
-                            <h3 className="">footage</h3>
-                        </div>
-                    </div>
-
-                    <div className="col">
-
-                        <div className="row">
-                            <h3 className="row">Unit description:</h3>
-                            <h6>Home is getting built next year</h6>
-                        </div>
-                        <div className="row">
-                            <h3 className="row">Notes</h3>
-                        </div>
-                        <div className="row">
-                            <h3 className="row">Color Pattern</h3>
-                            <h6>warm white, red</h6>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <UnitList id={clientId}/>
         </div>
     )
 
 };
-export default Profile;
+export default Profile

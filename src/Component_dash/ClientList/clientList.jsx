@@ -33,7 +33,7 @@ export default class ClientList extends Component {
                     </tr>
                     <tbody>
                         {this.state.clientList.map((client, i) => {
-                            console.log(client._id)
+                            
                             return (
                                 <tr>
                                     <td>
