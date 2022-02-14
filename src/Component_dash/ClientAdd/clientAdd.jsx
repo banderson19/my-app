@@ -75,7 +75,8 @@ export default class ClientAdd extends Component {
                         <input type="text" value={this.state.notes} onChange={this.onChangeNotes} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <input type="submit" value="Create User" className="btn btn-success btn-block" />
+                    
+                        <input  type="submit" value="Create User" className="btn btn-success btn-block" />
                     </div>
 
                 </form>

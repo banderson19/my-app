@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 class UpdateClient extends Component {
     constructor(props) {
@@ -16,7 +18,6 @@ class UpdateClient extends Component {
             lastName: this.props.lastName,
             phoneNumber: this.props.phoneNumber,
             notes: this.props.note,
-            setEdit:  this.props.setEdit
         }
         console.log('proppps', this.props)
     }
@@ -74,7 +75,7 @@ class UpdateClient extends Component {
                         <input type="text" value={this.state.notes} onChange={this.onChangeNotes} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <button type="submit" className="btn btn-success btn-block">save client</button>
+                        <button to="/dashboard" type="submit" className="btn btn-success btn-block">save client</button>
                     </div>
 
                 </form>

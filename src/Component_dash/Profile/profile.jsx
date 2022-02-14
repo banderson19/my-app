@@ -47,8 +47,6 @@ const Profile = () => {
                 </Link>
             </div>
 
-
-
             {edit ?
                 <div className="container">
                     <button onClick={() => setEdit(false)}>Edit client</button>
@@ -68,16 +66,13 @@ const Profile = () => {
                 </div>
                 :
                 <div>
-
-                    <button onClick={() => setEdit(true)}>cancel</button>
-                    <button type="submit">save client</button>
+                    <button onClick={() => setEdit(true)}>back</button>
                     <UpdateClient
                         id={clientId}
                         firstName={firstName}
                         lastName={lastName}
                         phoneNumber={phoneNumber}
                         note={note}
-                        setEdit={setEdit}
                     />
                 </div>
             }
