@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
+import Header from '../Header/header.jsx'
 
 export default class ClientAdd extends Component {
     constructor(props) {
@@ -48,27 +50,34 @@ export default class ClientAdd extends Component {
 
     render() {
         return (
-            <div className="wrapper">
+            <div className="container">
+                <Header />
+                <Link to="/dashboard">
+                    <button>Client List</button>
+                </Link>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
-                        <label>Add first name</label>
-                        <input type="text" value={this.state.firstName} onChange={this.onChangeFirstName} className="form-control" />
+                    <div className="row">
+                        <div className="form-group col-lg-4">
+                            <label>Add first name</label>
+                            <input type="text" value={this.state.firstName} onChange={this.onChangeFirstName} className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-4">
+                            <label>Add last name</label>
+                            <input type="text" value={this.state.lastName} onChange={this.onChangeLastName} className="form-control" />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label>Add last name</label>
-                        <input type="text" value={this.state.lastName} onChange={this.onChangeLastName} className="form-control" />
-                    </div>
-                    <div className="form-group">
+                    <div className="form-group col-lg-8">
                         <label>Phone Number</label>
                         <input type="text" value={this.state.phoneNumber} onChange={this.onChangePhoneNumber} className="form-control" />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group col-lg-8">
                         <label>Notes</label>
                         <input type="text" value={this.state.notes} onChange={this.onChangeNotes} className="form-control" />
                     </div>
                     <div className="form-group">
                         <input type="submit" value="Create User" className="btn btn-success btn-block" />
                     </div>
+
                 </form>
             </div>
         )

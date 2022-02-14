@@ -24,6 +24,9 @@ export default class ClientList extends Component {
         console.log('111', this.state.clientList)
         return (
             <div className="container">
+                <div>
+                    <Link to={{pathname: '/dashboard/newclient'}}><button>Add new client</button></Link>
+                </div>
                 <table>
                     <tr>
                         <th>Name</th>
@@ -35,7 +38,7 @@ export default class ClientList extends Component {
                         {this.state.clientList.map((client, i) => {
                             
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>
                                         <Link to={{pathname: `/profile/${client._id}`, ojb: {client}}}>{client.firstName} {client.lastName}</Link>
                                     </td>

@@ -9,6 +9,10 @@ class UnitList extends Component {
             units: []
         }
     }
+
+    onChangeNotes(e) {
+        this.setState({ notes: e.target.value })
+    }
     componentWillMount() {
         console.log('hello')
         axios.get(`http://localhost:3001/api/clients/${this.state.clientId}`)
@@ -40,7 +44,7 @@ class UnitList extends Component {
                     <tbody>
                         {this.state.units.map((unit, i) => {
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>
                                         {unit.street}
                                     </td>
