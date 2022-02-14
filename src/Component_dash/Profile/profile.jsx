@@ -4,6 +4,7 @@ import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/header.jsx';
 import UnitList from '../UnitList/unitList.jsx';
+import UpdateClient from '../UpdateClient/updateClient.jsx';
 
 const Profile = () => {
     const { clientId } = useParams();
@@ -36,18 +37,7 @@ const Profile = () => {
     };
     getUser();
 
-    const updateUser = () => {
-        const  userObject = {
-            firstName: firstName,
-            lastName: lastName
-        }
-        axios.put(`http://localhost:3001/api/clients/${clientId}`, userObject)
-            .then((res) => {
-                console.log('res.data')
-            }).catch((error)=> {
-                console.log(error)
-            })
-    }
+
     return (
         <div>
             <div>
@@ -56,7 +46,7 @@ const Profile = () => {
                     <button>Client List</button>
                 </Link>
             </div>
-            
+
 
 
             {edit ?
@@ -76,27 +66,20 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
-                : 
+                :
                 <div>
 
-                <form onSubmit={updateUser}>
-                <div className="container">
-                    <div className="row">
-                        <div className="card col" style={{ width: "400px" }}>
-                            <div className="row">
-                                <textarea type="text" className="form-control" onSubmit={setFirstName}>{firstName}</textarea>
-                                <textarea type="text" className="form-control" onSubmit={setLastName}>{lastName}</textarea>
-                                <textarea type="text" className="form-control">{date}</textarea>
-                                <textarea type="text" className="form-control">{note}</textarea>
-                            </div>
-                        </div>
-                    </div>
+                    <button onClick={() => setEdit(true)}>cancel</button>
+                    <button type="submit">save client</button>
+                    <UpdateClient
+                        id={clientId}
+                        firstName={firstName}
+                        lastName={lastName}
+                        phoneNumber={phoneNumber}
+                        note={note}
+                        setEdit={setEdit}
+                    />
                 </div>
-
-                <button onClick={() => setEdit(true)}>cancel</button>
-            <button type="submit">save client</button>
-            </form>
-            </div>
             }
             <UnitList id={clientId} />
         </div>
