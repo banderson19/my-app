@@ -37,6 +37,15 @@ const Profile = () => {
     };
     getUser();
 
+    const deleteClient = () => {
+        console.log('client delete')
+        axios.delete(`http://localhost:3001/api/clients/${clientId}`)
+            .then(response => response.data)
+            .catch(err => {
+                console.log('deleting error', err)
+            })
+    }
+
 
     return (
         <div>
@@ -50,6 +59,7 @@ const Profile = () => {
             {edit ?
                 <div className="container">
                     <button onClick={() => setEdit(false)}>Edit client</button>
+                    <button onClick={() => deleteClient()}>Delete Client</button>
                     <div className="row">
                         <div className="card col" style={{ width: "400px" }}>
                             <h3 className="card-header">{firstName} {lastName}</h3>
