@@ -59,7 +59,7 @@ const Profile = () => {
             {edit ?
                 <div className="container">
                     <button onClick={() => setEdit(false)}>Edit client</button>
-                    <button onClick={() => deleteClient()}>Delete Client</button>
+                    <Link to="/dashboard"><button onClick={() => deleteClient()}>Delete Client</button></Link>
                     <div className="row">
                         <div className="card col" style={{ width: "400px" }}>
                             <h3 className="card-header">{firstName} {lastName}</h3>
@@ -86,7 +86,7 @@ const Profile = () => {
                     />
                 </div>
             }
-            <UnitList id={clientId} />
+            <UnitList />
         </div>
     )
 

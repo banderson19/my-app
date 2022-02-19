@@ -12,8 +12,18 @@
 
 
 ## server side 1.0
-* CRUD clients
+* CRUD client
+    * create (done)
+    * read  (done)  
+    * update  (done)
+    * delete (done)
+
 * CRUD Units
+    * create ()
+    * read  ()  
+    * update  ()
+    * delete ()
+
 * Clients Aquired
 
 
