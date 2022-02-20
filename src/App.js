@@ -5,8 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import routes from './routes';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import ClientList from './component_dash/ClientList/clientList.jsx';
-import Profile from './component_dash/Profile/profile.jsx';
+import ClientList from './Component_dash/ClientList/clientList.jsx';
+import Profile from './Component_dash/Profile/profile.jsx';
 
 
 

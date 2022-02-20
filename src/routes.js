@@ -2,9 +2,9 @@ import React from "react";
 import { Routes, Route} from 'react-router-dom';
 import Home  from './pages/Home.jsx';
 import Dashboard from './pages/Dashboard.jsx';
-import ClientList from './component_dash/ClientList/clientList.jsx';
-import Profile from './component_dash/Profile/profile.jsx';
-import ClientAdd from './component_dash/ClientAdd/clientAdd.jsx';
+import ClientList from './Component_dash/ClientList/clientList.jsx';
+import Profile from './Component_dash/Profile/profile.jsx';
+import ClientAdd from './Component_dash/ClientAdd/clientAdd.jsx';
 
 
 export default (

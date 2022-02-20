@@ -1,42 +1,41 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/header.jsx';
 import UnitList from '../UnitList/unitList.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
+import UnitAdd from '../UnitAdd/unitAdd.jsx';
 
 const Profile = () => {
     const { clientId } = useParams();
     console.log("clientid", clientId)
 
-    // desructure this
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [note, setNote] = useState('')
-    const [date, setDate] = useState('')
+    // use state to put the client in an object. 
+    const [client, setClient] = useState({});
+    const [units, setUnits] = useState([]);
+    const [editClient, setEditClient] = useState(true);
+    const [editUnit, setEditUnit]  =  useState(true);
 
-    const [edit, setEdit] = useState(true);
+    // desctructure client with property names
+    const {firstName, lastName, phoneNumber, note, date } = client;
 
-    const getUser = () => {
-        console.log('hello')
-        axios.get(`http://localhost:3001/api/clients/${clientId}`)
-            .then(response => response.data)
-            .then(response => {
-                console.log('info', response)
-                setFirstName(response.firstName)
-                setLastName(response.lastName)
-                setPhoneNumber(response.phoneNumber)
-                setNote(response.note);
-                setDate(response.clientAcquired);
-            })
-            .catch(err => {
-                console.log('error', err)
-            });
-    };
-    getUser();
-
+    // useEffect to prevent rerender of useState
+    useEffect(() => {
+        const getClient = async () => {
+            await axios.get(`http://localhost:3001/api/clients/${clientId}`)
+                .then(response => response.data)
+                .then(response => {
+                    console.log('info', response)
+                    setClient(response)
+                    setUnits(response.units)
+                })
+                .catch(err => {
+                    console.log('error', err)
+                });
+        } 
+        getClient();
+    }, [])
+    
     const deleteClient = () => {
         console.log('client delete')
         axios.delete(`http://localhost:3001/api/clients/${clientId}`)
@@ -46,6 +45,8 @@ const Profile = () => {
             })
     }
 
+    console.log('profile client', client)
+    console.log('profile units', units)
 
     return (
         <div>
@@ -56,9 +57,9 @@ const Profile = () => {
                 </Link>
             </div>
 
-            {edit ?
+            {editClient ?
                 <div className="container">
-                    <button onClick={() => setEdit(false)}>Edit client</button>
+                    <button onClick={() => setEditClient(false)}>Edit client</button>
                     <Link to="/dashboard"><button onClick={() => deleteClient()}>Delete Client</button></Link>
                     <div className="row">
                         <div className="card col" style={{ width: "400px" }}>
@@ -76,7 +77,7 @@ const Profile = () => {
                 </div>
                 :
                 <div>
-                    <button onClick={() => setEdit(true)}>back</button>
+                    <button onClick={() => setEditClient(true)}>back</button>
                     <UpdateClient
                         id={clientId}
                         firstName={firstName}
@@ -86,7 +87,59 @@ const Profile = () => {
                     />
                 </div>
             }
-            <UnitList />
+            {editUnit ?
+
+            <div className="container">
+            <button onClick={() => setEditUnit(false)}>Add Unit</button>
+                <table>
+                    <tr>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>Zip</th>
+                        <th>Linear Feet</th>
+                        <th>Description</th>
+                        <th>Notes</th>
+                        <th>Color Pattern</th>
+
+                    </tr>
+
+                    <tbody>
+                        {units.map((unit, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>
+                                        {unit.street}
+                                    </td>
+                                    <td>
+                                        {unit.city}
+                                    </td>
+                                    <td>
+                                        {unit.zip}
+                                    </td>
+                                    <td>
+                                        {unit.footage}
+                                    </td>
+                                    <td>
+                                        {unit.unitDescription}
+                                    </td>
+                                    <td>
+                                        {unit.notes}
+                                    </td>
+                                    <td>
+                                        {unit.colorPattern}
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+            </div>  
+            : 
+            <div>
+                <button onClick={() => setEditUnit(false)}>back</button>
+                <UnitAdd props={units}/>
+            </div> 
+            }
         </div>
     )
 
