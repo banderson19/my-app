@@ -1,11 +1,12 @@
 import React,{useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 
 import axios from 'axios';
 import Header from '../Header/header.jsx'
 
-const UnitAdd = (props) => {
-    console.log(props)
+const UnitAdd = () => {
+  const location = useLocation();
+    console.log(location)
     const [street, setStreet] = useState('');
     const [city, setCity]  = useState('');
 

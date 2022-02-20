@@ -137,7 +137,7 @@ const Profile = () => {
             : 
             <div>
                 <button onClick={() => setEditUnit(false)}>back</button>
-                <UnitAdd props={units}/>
+                <UnitAdd state={{units: units}}/>
             </div> 
             }
         </div>
