@@ -76,7 +76,7 @@ class UpdateClient extends Component {
                         <input type="text" value={this.state.notes} onChange={this.onChangeNotes} className="form-control" />
                     </div>
                     <div className="form-group">
-                        <button to="/dashboard" type="submit" className="btn btn-success btn-block">save client</button>
+                        <button to="/dashboard" type="submit" className="btn btn-success btn-block my-2">save client</button>
                     </div>
 
                 </form>

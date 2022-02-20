@@ -20,7 +20,7 @@
 
 * CRUD Units
     * create ()
-    * read  ()  
+    * read  (done)  
     * update  ()
     * delete ()
 

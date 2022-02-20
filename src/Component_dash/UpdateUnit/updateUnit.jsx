@@ -73,73 +73,45 @@ class UpdateUnit extends Component {
             });
     }
 
-    // onSubmit(e) {
-    //     e.preventDefault()
-    //     const unitObject = {
-    //         street: this.state.street,
-    //         city: this.state.city,
-    //         zip: this.state.zip,
-    //         linearFeet: this.state.linearFeet,
-    //         description: this.state.description,
-    //         notes: this.state.notes,
-    //         colorPattern: this.state.colorPattern
-    //     }
-    //     axios.put(`http://localhost:3001/api/units/${this.state.clientId}/${this.state.unitId}`, unitObject)
-    //         .then((res) => {
-    //             console.log(res)
-    //         }).catch((err) => {
-    //             console.log(err)
-    //         })
-    // }
-
     render() {
         return (
             <div>
-                <div className="container">
-                    <form onSubmit={this.onSubmit}>
-                        <div>
-                            <div>
-                                <th>Sdiveet</th>
-                                <th>City</th>
-                                <th>Zip</th>
-                                <th>Linear Feet</th>
-                                <th>Description</th>
-                                <th>Notes</th>
-                                <th>Color Pattern</th>
-
-                            </div>
-
-                            <div>
-                                <div>
-                                    <div>
-                                        <input type="text" value={this.state.street} onChange={this.onChangeStreet} className="form-control" />
-                                    </div>
-                                    <div>
-                                        <input type="text" value={this.state.city} onChange={this.onChangeCity} className="form-control" />
-                                    </div>
-                                    <div>
-                                        <input type="text" value={this.state.zip} onChange={this.onChangeZip} className="form-control" />
-                                    </div>
-                                    <div>
-                                        <input type="text" value={this.state.linearFeet} onChange={this.onChangeLinearFeet} className="form-control" />
-                                    </div>
-                                    <div>
-                                        <input type="text" value={this.state.description} onChange={this.onChangeDescription} className="form-control" />
-                                    </div>
-                                    <div>
-                                        <input type="text" value={this.state.notes} onChange={this.onChangeNotes} className="form-control" />
-                                    </div>
-                                    <div>
-                                        <input type="text" value={this.state.colorPattern} onChange={this.onChangeColorPattern} className="form-control" />
-                                    </div>   
-                                </div>
-                            </div>
+                <form onSubmit={this.onSubmit}>
+                    <div className="row">
+                        <div className="form-group col-lg-6">
+                            <label>Street Address</label>
+                            <input type="text" value={this.state.street} onChange={this.onChangeStreet} className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-3">
+                            <label>City</label>
+                            <input type="text" value={this.state.city} onChange={this.onChangeCity} className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-3">
+                            <label>Zip</label>
+                            <input type="text" value={this.state.zip} onChange={this.onChangeZip} className="form-control" />
+                        </div>
+                        <div className="form-group col-lg">
+                            <label>Linear Feet</label>
+                            <input type="text" value={this.state.linearFeet} onChange={this.onChangeLinearFeet} className="form-control" />
+                        </div>
+                        <div className="form-group col-lg">
+                            <label>Color Pattern</label>
+                            <input type="text" value={this.state.colorPattern} onChange={this.onChangeColorPattern} className="form-control" />
                         </div>
                         <div className="form-group">
-                            <button to="/dashboard" type="submit" className="btn btn-success btn-block">save client</button>
+                            <label>Description</label>
+                            <textarea type="text" value={this.state.description} onChange={this.onChangeDescription} className="form-control" />
                         </div>
-                    </form>
-                </div>
+                        <div>
+                            <label>Notes</label>
+                            <input type="text" value={this.state.notes} onChange={this.onChangeNotes} className="form-control" />
+                        </div>
+
+                    </div>
+                    <div className="form-group">
+                        <button to="/dashboard" type="submit" className="btn btn-success btn-block">save client</button>
+                    </div>
+                </form>
             </div>
         )
     }

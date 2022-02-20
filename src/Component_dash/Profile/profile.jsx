@@ -17,8 +17,8 @@ const Profile = () => {
     const [editUnit, setEditUnit]  =  useState(true);
 
     // desctructure client with property names
-    const {firstName, lastName, phoneNumber, note, date } = client;
-
+    const {firstName, lastName, phoneNumber, notes, clientAcquired } = client;
+    console.log('client ojbect', client)
     // useEffect to prevent rerender of useState
     useEffect(() => {
         const getClient = async () => {
@@ -68,30 +68,30 @@ const Profile = () => {
                             <h3 className="card-body">{phoneNumber}</h3>
                         </div>
                         <div className="col">
-                            <h6>Date Acquired: {date}</h6>
+                            <h6>Date Acquired:{clientAcquired}</h6>
                             <div>
                                 <h5>Notes: </h5>
-                                <h6>{note}</h6>
+                                <h6>{notes}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 :
-                <div>
+                <div className="container">
                     <button onClick={() => setEditClient(true)}>back</button>
                     <UpdateClient
                         id={clientId}
                         firstName={firstName}
                         lastName={lastName}
                         phoneNumber={phoneNumber}
-                        note={note}
+                        note={notes}
                     />
                 </div>
             }
 
         {editUnit ?
             <div className="container">
-            <button onClick={() => setEditUnit(false)}>Add Unit</button>
+            <button onClick={() => setEditUnit(false)}>Edit Unit</button>
                 <table>
                     <tr>
                         <th>Street</th>
@@ -129,6 +129,12 @@ const Profile = () => {
                                     <td>
                                         {unit.colorPattern}
                                     </td>
+                                    <td>
+                                        <button onClick={() => setEditUnit(false)}>edit</button>
+                                    </td>
+                                    <td>
+                                        <button onClick={() => setEditUnit(false)}>delete</button>
+                                    </td>
                                 </tr>
                             )
                         })}
@@ -136,7 +142,7 @@ const Profile = () => {
                 </table>
             </div>  
             : 
-            <div>
+            <div className='container'>
                 <button onClick={() => setEditUnit(true)}>back</button>
                 <UpdateUnit  id={clientId} units={units}/>
             </div> 
