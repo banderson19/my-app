@@ -45,6 +45,7 @@ class UpdateClient extends Component {
         };
         axios.put(`http://localhost:3001/api/clients/${this.state.clientId}`, userObject)
             .then((res) => {
+                console.log(res)
                 console.log(res.data)
             }).catch((error) => {
                 console.log(error)

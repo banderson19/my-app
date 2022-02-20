@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from '../Header/header.jsx';
 import UnitList from '../UnitList/unitList.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
-import UnitAdd from '../UnitAdd/unitAdd.jsx';
+import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
 
 const Profile = () => {
     const { clientId } = useParams();
@@ -45,6 +45,7 @@ const Profile = () => {
             })
     }
 
+    
     console.log('profile client', client)
     console.log('profile units', units)
 
@@ -87,8 +88,8 @@ const Profile = () => {
                     />
                 </div>
             }
-            {editUnit ?
 
+        {editUnit ?
             <div className="container">
             <button onClick={() => setEditUnit(false)}>Add Unit</button>
                 <table>
@@ -136,11 +137,13 @@ const Profile = () => {
             </div>  
             : 
             <div>
-                <button onClick={() => setEditUnit(false)}>back</button>
-                <UnitAdd state={{units: units}}/>
+                <button onClick={() => setEditUnit(true)}>back</button>
+                <UpdateUnit  id={clientId} units={units}/>
             </div> 
-            }
-        </div>
+            
+        }
+        </div>  
+
     )
 
 };

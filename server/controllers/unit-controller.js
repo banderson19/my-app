@@ -25,15 +25,18 @@ const unitController = {
   // update unit
   updateUnit({ params, body }, res) {
     Unit.findOneAndUpdate({ _id: params.unitId }, body, { new: true })
-        .then(dbUnitData => {
-            if (!dbUnitData) {
+    .then(dbUnitData => {
+      console.log('controller',  body)
+      console.log('unit', units)
+      if (!dbUnitData) {
                 return res.status(404).json({ message: 'No unit found with this id!' });
-            }
-            return Client.findOneAndUpdate(
+              }
+              return Client.findOneAndUpdate(
                 { _id: params.clientId },
-                { $push: { units: _id } },
+                { $set: {units: body}  },
                 { new: true }
-            )
+                )
+                
         })
         .then(dbClientData => {
             if (!dbClientData) {
