@@ -5,6 +5,7 @@ import Header from '../Header/header.jsx';
 import UnitList from '../UnitList/unitList.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
 import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
+import UnitAdd from  '../UnitAdd/unitAdd.jsx'
 
 const Profile = () => {
     const { clientId } = useParams();
@@ -15,6 +16,7 @@ const Profile = () => {
     const [units, setUnits] = useState([]);
     const [editClient, setEditClient] = useState(true);
     const [editUnit, setEditUnit]  =  useState(true);
+    const [addUnit,  setAddUnit] = useState(true);
 
     // desctructure client with property names
     const {firstName, lastName, phoneNumber, notes, clientAcquired } = client;
@@ -89,11 +91,21 @@ const Profile = () => {
                 </div>
             }
 
+            {addUnit ? 
+            <div className="container">
+                <button onClick={() => setAddUnit(false)}>Add Unit</button>
+            </div>
+            :
+            <div className="container">
+                <button onClick={() => setAddUnit(true)}>Back</button>
+                <UnitAdd id={clientId}/>
+                <div>hello mark</div>
+            </div>
+
+            }
+
         {editUnit ?
             <div className="container">
-            {/* <button onClick={() => setEditUnit(false)}>Edit Unit</button> */}
-            <button>Add Unit</button>
-
                 <table>
                     <tr>
                         <th>Street</th>
