@@ -9,7 +9,7 @@ import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
 const Profile = () => {
     const { clientId } = useParams();
     console.log("clientid", clientId)
-
+    const [index, setIndex] = useState('')
     // use state to put the client in an object. 
     const [client, setClient] = useState({});
     const [units, setUnits] = useState([]);
@@ -91,7 +91,9 @@ const Profile = () => {
 
         {editUnit ?
             <div className="container">
-            <button onClick={() => setEditUnit(false)}>Edit Unit</button>
+            {/* <button onClick={() => setEditUnit(false)}>Edit Unit</button> */}
+            <button>Add Unit</button>
+
                 <table>
                     <tr>
                         <th>Street</th>
@@ -106,6 +108,7 @@ const Profile = () => {
 
                     <tbody>
                         {units.map((unit, i) => {
+                            console.log('unit', unit)
                             return (
                                 <tr key={i}>
                                     <td>
@@ -130,7 +133,7 @@ const Profile = () => {
                                         {unit.colorPattern}
                                     </td>
                                     <td>
-                                        <button onClick={() => setEditUnit(false)}>edit</button>
+                                        <button onClick={() => {setEditUnit(false); setIndex(i)}}>edit</button>
                                     </td>
                                     <td>
                                         <button onClick={() => setEditUnit(false)}>delete</button>
@@ -144,7 +147,7 @@ const Profile = () => {
             : 
             <div className='container'>
                 <button onClick={() => setEditUnit(true)}>back</button>
-                <UpdateUnit  id={clientId} units={units}/>
+                <UpdateUnit  id={clientId} index={index} units={units}/>
             </div> 
             
         }
