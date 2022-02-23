@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Header/header.jsx';
-import UnitList from '../UnitList/unitList.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
 import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
 import UnitAdd from  '../UnitAdd/unitAdd.jsx'
@@ -17,7 +16,7 @@ const Profile = () => {
     const [editClient, setEditClient] = useState(true);
     const [editUnit, setEditUnit]  =  useState(true);
     const [addUnit,  setAddUnit] = useState(true);
-
+    
     // desctructure client with property names
     const {firstName, lastName, phoneNumber, notes, clientAcquired } = client;
     console.log('client ojbect', client)
@@ -46,6 +45,17 @@ const Profile = () => {
                 console.log('deleting error', err)
             })
     }
+    const deleteUnit = (unitId) => {
+        axios.delete(`http://localhost:3001/api/units/${clientId}/${unitId}`)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    
 
     
     console.log('profile client', client)
@@ -148,7 +158,7 @@ const Profile = () => {
                                         <button onClick={() => {setEditUnit(false); setIndex(i)}}>edit</button>
                                     </td>
                                     <td>
-                                        <button onClick={() => setEditUnit(false)}>delete</button>
+                                        <button onClick={() => deleteUnit(unit._id)}>delete</button>
                                     </td>
                                 </tr>
                             )

@@ -19,10 +19,10 @@
     * delete (done)
 
 * CRUD Units
-    * create ()
+    * create (done)
     * read  (done)  
-    * update  ()
-    * delete ()
+    * update  (done)
+    * delete (done)
 
 * Clients Aquired
 
