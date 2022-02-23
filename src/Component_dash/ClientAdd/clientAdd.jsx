@@ -43,7 +43,7 @@ export default class ClientAdd extends Component {
         };
         axios.post('http://localhost:3001/api/clients', userObject)
             .then((res) => {
-                console.log(res.data)
+                console.log(res)
             }).catch((error) => {
                 console.log(error)
             });

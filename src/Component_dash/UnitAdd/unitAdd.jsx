@@ -3,8 +3,9 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const UnitAdd = () => {
-    const clientId = useParams();
-    console.log('zz', clientId)
+    const params = useParams();
+    const clientId = params.clientId
+    console.log('zz',clientId)
     const [formData, setFormData] = useState({
         street: '',
         city: '',
@@ -18,15 +19,16 @@ const UnitAdd = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData);
-        axios.post(`http://localhost:3001/api/units/${clientId}`, formData)
+        console.log('111',  formData);
+        const data = formData
+        axios.post(`http://localhost:3001/api/units/${clientId}`, data)
             .then((res) => {
-                console.log(res.data)
+                console.log(res)
             }).catch((error) => {
                 console.log(error)
             });
     }
-
+    // "Cast to ObjectId failed for value "[object Object]" (type string) at path "_id" for model "Client""
     return (
         <form onSubmit={handleSubmit} >
             <div className="row">

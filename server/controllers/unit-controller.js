@@ -4,7 +4,8 @@ const unitController = {
     
   // add unit to Client
   addUnit({ params, body }, res) {
-    console.log(body);
+    console.log('body', body);
+    console.log('id', params.clientId)
     Unit.create(body)
       .then(({ _id }) => {
         return Client.findOneAndUpdate(
