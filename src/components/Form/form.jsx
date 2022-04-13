@@ -47,7 +47,7 @@ const Form = () => {
                 <label for="user_name">Enter full name:</label>
                 <input type="text" id="name" name="user_name" placeholder="Your Name" className="form-input" />
                 <label for="user_email">Enter email address:</label>
-                <input type='text' id="name" name="user_email" placeholder="Email Address" name="user_email" id="user_email" className="form-input" />
+                <input type='text' id="email" name="user_email" placeholder="Email Address" className="form-input" />
                 <label for="user_phone">Enter a telephone number:</label>
                 <input name="user_phone" id="user_phone" placeholder="Phone Number" className="form-input" />
                 <p>
