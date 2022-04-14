@@ -22,6 +22,12 @@ const ClientSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Unit'
         }
+    ],
+    services: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Service'
+        }
     ]
 })
 

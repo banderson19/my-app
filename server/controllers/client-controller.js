@@ -8,6 +8,10 @@ const clientController = {
                 path: 'units',
                 select: '-__v'
             })
+            .populate({
+                path: 'services',
+                select: '-__v'
+            })
             .select('-__v')
             .sort({_id:-1})
             .then(dbClientData => res.json(dbClientData))
