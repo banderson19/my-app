@@ -66,7 +66,7 @@ const Profile = () => {
                     <button>Client List</button>
                 </Link>
             </div>
-
+{/* edit client info */}
             {editClient ?
                 <div className="container">
                     <button onClick={() => setEditClient(false)}>Edit client</button>
@@ -97,7 +97,7 @@ const Profile = () => {
                     />
                 </div>
             }
-
+{/* add unit to the client profile */}
             {addUnit ? 
             <div className="container">
                 <button onClick={() => setAddUnit(false)}>Add Unit</button>
@@ -110,7 +110,7 @@ const Profile = () => {
             </div>
 
             }
-
+{/* toggle between displaying the unit info  or editing the info */}
         {editUnit ?
             <div className="container">
                 <table>
@@ -162,6 +162,8 @@ const Profile = () => {
                         })}
                     </tbody>
                 </table>
+                {/* add a service here  */}
+                <button>Add Service</button>
             </div>  
             : 
             <div className='container'>
