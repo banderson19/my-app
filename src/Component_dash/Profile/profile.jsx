@@ -55,9 +55,6 @@ const Profile = () => {
             })
     }
 
-    
-
-    
     console.log('profile client', client)
     console.log('profile units', units)
 
