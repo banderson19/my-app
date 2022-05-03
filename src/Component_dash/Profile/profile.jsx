@@ -4,7 +4,8 @@ import axios from 'axios';
 import Header from '../Header/header.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
 import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
-import UnitAdd from  '../UnitAdd/unitAdd.jsx'
+import UnitAdd from '../UnitAdd/unitAdd.jsx';
+import ServiceAdd from '../ServiceAdd/serviceAdd.jsx';
 
 const Profile = () => {
     const { clientId } = useParams();
@@ -15,11 +16,12 @@ const Profile = () => {
     const [units, setUnits] = useState([]);
     const [services, setServices] = useState([]);
     const [editClient, setEditClient] = useState(true);
-    const [editUnit, setEditUnit]  =  useState(true);
-    const [addUnit,  setAddUnit] = useState(true);
-    
+    const [editUnit, setEditUnit] = useState(true);
+    const [addUnit, setAddUnit] = useState(true);
+    const [addService, setAddService] = useState(true);
+
     // desctructure client with property names
-    const {firstName, lastName, phoneNumber, notes, clientAcquired } = client;
+    const { firstName, lastName, phoneNumber, notes, clientAcquired } = client;
     console.log('client ojbect', client)
     // useEffect to prevent rerender of useState
     useEffect(() => {
@@ -35,10 +37,10 @@ const Profile = () => {
                 .catch(err => {
                     console.log('error', err)
                 });
-        } 
+        }
         getClient();
     }, [])
-    
+
     const deleteClient = () => {
         console.log('client delete')
         axios.delete(`http://localhost:3001/api/clients/${clientId}`)
@@ -68,7 +70,7 @@ const Profile = () => {
                     <button>Client List</button>
                 </Link>
             </div>
-{/* edit client info */}
+            {/* edit client info */}
             {editClient ?
                 <div className="container">
                     <button onClick={() => setEditClient(false)}>Edit client</button>
@@ -99,115 +101,126 @@ const Profile = () => {
                     />
                 </div>
             }
-{/* add unit to the client profile */}
-            {addUnit ? 
-            <div className="container">
-                <button onClick={() => setAddUnit(false)}>Add Unit</button>
-            </div>
-            :
-            <div className="container">
-                <button onClick={() => setAddUnit(true)}>Back</button>
-                <UnitAdd id={clientId}/>
-                <div>hello mark</div>
-            </div>
+            {/* add unit to the client profile */}
+            {addUnit ?
+                <div className="container">
+                    <button onClick={() => setAddUnit(false)}>Add Unit</button>
+                </div>
+                :
+                <div className="container">
+                    <button onClick={() => setAddUnit(true)}>Back</button>
+                    <UnitAdd id={clientId} />
+                    <div>hello mark</div>
+                </div>
 
             }
-{/* toggle between displaying the unit info  or editing the info */}
-        {editUnit ?
-            <div className="container">
-                <table>
-                    <tr>
-                        <th>Street</th>
-                        <th>City</th>
-                        <th>Zip</th>
-                        <th>Linear Feet</th>
-                        <th>Description</th>
-                        <th>Notes</th>
-                        <th>Color Pattern</th>
+            {/* toggle between displaying the unit info  or editing the info */}
+            {editUnit ?
+                <div className="container">
+                    <table>
+                        <tr>
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>Zip</th>
+                            <th>Linear Feet</th>
+                            <th>Description</th>
+                            <th>Notes</th>
+                            <th>Color Pattern</th>
 
-                    </tr>
+                        </tr>
 
-                    <tbody>
-                        {units.map((unit, i) => {
-                            console.log('unit', unit)
-                            return (
-                                <tr key={i}>
-                                    <td>
-                                        {unit.street}
-                                    </td>
-                                    <td>
-                                        {unit.city}
-                                    </td>
-                                    <td>
-                                        {unit.zip}
-                                    </td>
-                                    <td>
-                                        {unit.footage}
-                                    </td>
-                                    <td>
-                                        {unit.unitDescription}
-                                    </td>
-                                    <td>
-                                        {unit.notes}
-                                    </td>
-                                    <td>
-                                        {unit.colorPattern}
-                                    </td>
-                                    <td>
-                                        <button onClick={() => {setEditUnit(false); setIndex(i)}}>edit</button>
-                                    </td>
-                                    <td>
-                                        <button onClick={() => deleteUnit(unit._id)}>delete</button>
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table>
-                {/* add a service here  */}
-                <button>Add Service</button>
-                <table>
-                <tr>
-                        <th>Service Date</th>
-                        <th>Service</th>
-                        <th>Notes</th>
-                        <th>Charge</th>
-                        <th>Cost</th>
-                    </tr>
-                <tbody>
-                    {services.map((service, i) => {
-                        console.log('service', service)
-                        return (
-                            <tr key={i}>
-                                <td>
-                                    {service.serviceDate}
-                                </td>
-                                <td>
-                                    {service.service}
-                                </td>
-                                <td>
-                                    {service.notes}
-                                </td>
-                                <td>
-                                    {service.charge}
-                                </td>
-                                <td>
-                                    {service.cost}
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
-            </div>  
-            : 
-            <div className='container'>
-                <button onClick={() => setEditUnit(true)}>back</button>
-                <UpdateUnit  id={clientId} index={index} units={units}/>
-            </div> 
-            
-        }
-        </div>  
+                        <tbody>
+                            {units.map((unit, i) => {
+                                console.log('unit', unit)
+                                return (
+                                    <tr key={i}>
+                                        <td>
+                                            {unit.street}
+                                        </td>
+                                        <td>
+                                            {unit.city}
+                                        </td>
+                                        <td>
+                                            {unit.zip}
+                                        </td>
+                                        <td>
+                                            {unit.footage}
+                                        </td>
+                                        <td>
+                                            {unit.unitDescription}
+                                        </td>
+                                        <td>
+                                            {unit.notes}
+                                        </td>
+                                        <td>
+                                            {unit.colorPattern}
+                                        </td>
+                                        <td>
+                                            <button onClick={() => { setEditUnit(false); setIndex(i) }}>edit</button>
+                                        </td>
+                                        <td>
+                                            <button onClick={() => deleteUnit(unit._id)}>delete</button>
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    {/* add a service here  */}
+                    {addService ?
+                        <div className="container">
+                            <button onClick={() => setAddService(false)}>Add Service</button>
+                        </div>
+                        :
+                        <div className="container">
+                            <button onClick={() => setAddService(true)}>Back</button>
+                            <ServiceAdd id={clientId} />
+                            <div>hello mark</div>
+                        </div>
+
+                    }
+                    <table>
+                        <tr>
+                            <th>Service Date</th>
+                            <th>Service</th>
+                            <th>Notes</th>
+                            <th>Charge</th>
+                            <th>Cost</th>
+                        </tr>
+                        <tbody>
+                            {services.map((service, i) => {
+                                console.log('service', service)
+                                return (
+                                    <tr key={i}>
+                                        <td>
+                                            {service.serviceDate}
+                                        </td>
+                                        <td>
+                                            {service.service}
+                                        </td>
+                                        <td>
+                                            {service.notes}
+                                        </td>
+                                        <td>
+                                            {service.charge}
+                                        </td>
+                                        <td>
+                                            {service.cost}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+                :
+                <div className='container'>
+                    <button onClick={() => setEditUnit(true)}>back</button>
+                    <UpdateUnit id={clientId} index={index} units={units} />
+                </div>
+
+            }
+        </div>
 
     )
 
