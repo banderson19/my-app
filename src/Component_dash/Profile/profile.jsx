@@ -13,6 +13,7 @@ const Profile = () => {
     // use state to put the client in an object. 
     const [client, setClient] = useState({});
     const [units, setUnits] = useState([]);
+    const [services, setServices] = useState([]);
     const [editClient, setEditClient] = useState(true);
     const [editUnit, setEditUnit]  =  useState(true);
     const [addUnit,  setAddUnit] = useState(true);
@@ -29,6 +30,7 @@ const Profile = () => {
                     console.log('info', response)
                     setClient(response)
                     setUnits(response.units)
+                    setServices(response.services)
                 })
                 .catch(err => {
                     console.log('error', err)
@@ -164,6 +166,39 @@ const Profile = () => {
                 </table>
                 {/* add a service here  */}
                 <button>Add Service</button>
+                <table>
+                <tr>
+                        <th>Service Date</th>
+                        <th>Service</th>
+                        <th>Notes</th>
+                        <th>Charge</th>
+                        <th>Cost</th>
+                    </tr>
+                <tbody>
+                    {services.map((service, i) => {
+                        console.log('service', service)
+                        return (
+                            <tr key={i}>
+                                <td>
+                                    {service.serviceDate}
+                                </td>
+                                <td>
+                                    {service.service}
+                                </td>
+                                <td>
+                                    {service.notes}
+                                </td>
+                                <td>
+                                    {service.charge}
+                                </td>
+                                <td>
+                                    {service.cost}
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
             </div>  
             : 
             <div className='container'>

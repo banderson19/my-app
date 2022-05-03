@@ -27,6 +27,10 @@ const clientController = {
                 path: 'units',
                 select: '-__v'
             })
+            .populate({
+                path: 'services',
+                select: '-__v'
+            })
             .then(dbClientData => {
                 // If no pizza is found, send 404
                 if (!dbClientData) {
