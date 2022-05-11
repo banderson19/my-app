@@ -51,7 +51,7 @@ const ServiceAdd = () => {
                 <input type="text" value={formData.cost} onChange={(e) => setFormData({ ...formData, cost: e.target.value })} name="cost" id="cost" className="form-control" />
             </div>
             <div className="form-group">
-                <input type="submit" value="Create User" className="btn btn-success btn-block" />
+                <input type="submit" value="Add New Service" className="mt-2 btn btn-success btn-block" />
             </div>
         </form>
     )

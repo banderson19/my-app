@@ -62,7 +62,7 @@ const UnitAdd = () => {
                 <input type="text" value={formData.colorPattern} onChange={(e) => setFormData({ ...formData, colorPattern: e.target.value })} name="colorPattern" id="colorPattern" className="form-control" />
             </div>
             <div className="form-group">
-                <input type="submit" value="Create User" className="btn btn-success btn-block" />
+                <input type="submit" value="Add New Unit" className="my-2 btn btn-success btn-block" />
             </div>
 
         </form>

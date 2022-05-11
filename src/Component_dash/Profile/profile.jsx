@@ -7,6 +7,8 @@ import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
 import UnitAdd from '../UnitAdd/unitAdd.jsx';
 import ServiceAdd from '../ServiceAdd/serviceAdd.jsx';
 
+import house from '../../assets/images/image1.jpeg';
+
 const Profile = () => {
     const { clientId } = useParams();
     console.log("clientid", clientId)
@@ -66,32 +68,38 @@ const Profile = () => {
         <div>
             <div>
                 <Header />
-                <Link to="/dashboard">
-                    <button>Client List</button>
-                </Link>
             </div>
             {/* edit client info */}
             {editClient ?
                 <div className="container">
-                    <button onClick={() => setEditClient(false)}>Edit client</button>
-                    <Link to="/dashboard"><button onClick={() => deleteClient()}>Delete Client</button></Link>
-                    <div className="row">
-                        <div className="card col" style={{ width: "400px" }}>
-                            <h3 className="card-header">{firstName} {lastName}</h3>
-                            <h3 className="card-body">{phoneNumber}</h3>
+                    <button className="btn btn-outline-info" onClick={() => setEditClient(false)}>Edit client</button>
+                    <Link to="/dashboard"><button className="btn btn-outline-danger mx-2" onClick={() => deleteClient()}>Delete Client</button></Link>
+                    <div className="row mt-2">
+                        <div className='col-3'>
+                            <img
+                                src={house}
+                                style={{height: '15rem'}}
+                                className=""
+                                alt="Clients house"
+                            />
                         </div>
-                        <div className="col">
-                            <h6>Date Acquired:{clientAcquired}</h6>
-                            <div>
-                                <h5>Notes: </h5>
-                                <h6>{notes}</h6>
+                        <div className="card col-6">
+                            <div className="card-header row">
+                                <h3 className="col">{firstName} {lastName} </h3>
+                                <h6 className="col text-end">Date Acquired:{clientAcquired}</h6>
+                            </div>
+                            <div className="card-body">
+                                <div className="row">
+                                    <h3 className="col">Phone: {phoneNumber}</h3>
+                                    <h3 className="col">Address: </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 :
                 <div className="container">
-                    <button onClick={() => setEditClient(true)}>back</button>
+                    <button className="my-2 btn btn-secondary" onClick={() => setEditClient(true)}>back</button>
                     <UpdateClient
                         id={clientId}
                         firstName={firstName}
@@ -104,13 +112,12 @@ const Profile = () => {
             {/* add unit to the client profile */}
             {addUnit ?
                 <div className="container">
-                    <button onClick={() => setAddUnit(false)}>Add Unit</button>
+                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>Add Unit</button>
                 </div>
                 :
                 <div className="container">
-                    <button onClick={() => setAddUnit(true)}>Back</button>
+                    <button className="mt-2 btn btn-secondary" onClick={() => setAddUnit(true)}>Back</button>
                     <UnitAdd id={clientId} />
-                    <div>hello mark</div>
                 </div>
 
             }
@@ -168,14 +175,13 @@ const Profile = () => {
                     </table>
                     {/* add a service here  */}
                     {addService ?
-                        <div className="container">
-                            <button onClick={() => setAddService(false)}>Add Service</button>
+                        <div>
+                            <button className=" my-2 btn btn-outline-success" onClick={() => setAddService(false)}>Add Service</button>
                         </div>
                         :
-                        <div className="container">
-                            <button onClick={() => setAddService(true)}>Back</button>
+                        <div className="container mb-4">
+                            <button className="my-2 btn btn-secondary" onClick={() => setAddService(true)}>Back</button>
                             <ServiceAdd id={clientId} />
-                            <div>hello mark</div>
                         </div>
 
                     }
@@ -215,7 +221,7 @@ const Profile = () => {
                 </div>
                 :
                 <div className='container'>
-                    <button onClick={() => setEditUnit(true)}>back</button>
+                    <button className="btn btn-secondary" onClick={() => setEditUnit(true)}>back</button>
                     <UpdateUnit id={clientId} index={index} units={units} />
                 </div>
 
