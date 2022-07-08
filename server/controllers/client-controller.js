@@ -4,16 +4,20 @@ const clientController = {
     // get all clients
     getAllClient(req, res) {
         Client.find({})
+        // populate data from all corresponding data
             .populate({
                 path: 'units',
                 select: '-__v'
             })
+            // populate data from other tables
             .populate({
                 path: 'services',
                 select: '-__v'
             })
             .select('-__v')
+            // soret desending
             .sort({_id:-1})
+            // if found response is var dbClientData turned into json
             .then(dbClientData => res.json(dbClientData))
             .catch(err => {
                 console.log(err);
@@ -23,6 +27,7 @@ const clientController = {
     // get on client by id
     getClientById({ params }, res) {
         Client.findOne({ _id: params.id })
+        // populate with all corresponding tables 
             .populate({
                 path: 'units',
                 select: '-__v'
@@ -32,7 +37,7 @@ const clientController = {
                 select: '-__v'
             })
             .then(dbClientData => {
-                // If no pizza is found, send 404
+                // If no client is found, send 404
                 if (!dbClientData) {
                     res.status(404).json({ message: 'No client found with this id!' });
                     return;
@@ -40,6 +45,7 @@ const clientController = {
                 res.json(dbClientData);
             })
             .catch(err => {
+                // Also if no client is found
                 console.log(err);
                 res.status(400).json(err);
             });

@@ -10,22 +10,18 @@
 * Update Readme
 * add more  photos or alternative to carousel
 
+### Reveiw and Comment Code
+ 1. convert id from 17 digit number to  single digit
+
 
 ## server side 1.0
-* CRUD client
-    * create (done)
-    * read  (done)  
-    * update  (done)
-    * delete (done)
+* Clients Aquired - Date
 
-* CRUD Units
-    * create (done)
-    * read  (done)  
-    * update  (done)
-    * delete (done)
-
-* Clients Aquired
-
+## Features: 
+* schedule calendar
+* dashboard that shows overall performance
+* transactions
+* invoice sent
 
 ## Clients table
 * The name of the Client
@@ -47,3 +43,5 @@ melissa unit id
 client melissa id
 6202c25e0fdff76f54e8d525
 
+7/8/22
+* progressive web aplication. check application performance with chrome dev tools lighthouse
