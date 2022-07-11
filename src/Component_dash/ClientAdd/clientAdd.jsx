@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import axios from 'axios';
 import Header from '../Header/header.jsx'
+import Sidebar from '../Sidebar/sidebar.jsx'
 
 export default class ClientAdd extends Component {
     constructor(props) {
@@ -52,12 +53,18 @@ export default class ClientAdd extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
+                 <div className="w-25 position-fixed bg-light ">
+                    <Sidebar />
+                 </div>
+                 <div style={{marginLeft: "25%"}}>
+
                 <Header />
+                 
                 <Link to="/dashboard">
                     <button>Client List</button>
                 </Link>
-                <form onSubmit={this.onSubmit}>
+                <form  className="container"  onSubmit={this.onSubmit}>
                     <div className="row">
                         <div className="form-group col-lg-4">
                             <label>Add first name</label>
@@ -81,6 +88,7 @@ export default class ClientAdd extends Component {
                     </div>
 
                 </form>
+                </div>
             </div>
         )
     }

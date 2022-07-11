@@ -13,8 +13,8 @@ const Dashboard = () => {
                 <Sidebar />
             </div>
             <div style={{marginLeft: "25%"}}>
-                <Header />
-                <ClientList/>
+                {/* <Header /> */}
+                {/* <ClientList/> */}
             </div>
         </div>
     )

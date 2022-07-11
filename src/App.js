@@ -1,23 +1,31 @@
 import React from 'react';
-import { Routes, Route,  Link} from 'react-router-dom';
+import { Routes, Route,  Link, BrowserRouter} from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import routes from './routes';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import ClientList from './Component_dash/ClientList/clientList.jsx';
 import Profile from './Component_dash/Profile/profile.jsx';
-
-
+import ClientAdd from './Component_dash/ClientAdd/clientAdd.jsx';
+import { Calendar, Kanban, Expenses } from './Apps'
 
 function App() {
   return (
     <div>
-      {routes}
-      {/* <Routes>
-        <Route path="/" element={<Home />} /> 
-        <Route path="/dashboard" element={<Dashboard />} /> 
-      </Routes> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} /> 
+          <Route path="/dashboard" element={<Dashboard />} /> 
+          <Route path="/dashboard/clientList" element={<ClientList />} /> 
+          <Route path="/dashboard/newclient" element={<ClientAdd />} /> 
+          <Route path="/profile/:clientId" element={<Profile />} /> 
+          <Route path="/dashboard/calendar" element={<Calendar />} /> 
+          <Route path="/dashboard/kanban" element={<Kanban />} /> 
+          <Route path="/dashboard/expenses" element={<Expenses />} /> 
+
+
+        </Routes>
+      </BrowserRouter> 
     </div>
   );
 }

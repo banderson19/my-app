@@ -48,3 +48,4 @@ client melissa id
 
 7/9/22
 * working on sidebar desktop view. To open different pages on the right side when different tab is clicked
+* need have sidebar open and collapse while the main content adjust to size 

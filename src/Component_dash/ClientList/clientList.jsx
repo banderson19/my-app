@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './clientList.css';
 
+import Sidebar from '../Sidebar/sidebar';
+
 export default class ClientList extends Component {
     constructor(props) {
         super(props)
@@ -23,7 +25,13 @@ export default class ClientList extends Component {
     render() {
         console.log('111', this.state.clientList)
         return (
-            <div className="container">
+            <div>
+
+           
+                <div className="w-25 position-fixed bg-light ">
+                <Sidebar />
+            </div>
+            <div className="container"  style={{marginLeft: "25%"}}>
                 <div>
                     <Link to={{pathname: '/dashboard/newclient'}}><button>Add new client</button></Link>
                 </div>
@@ -55,6 +63,7 @@ export default class ClientList extends Component {
                         })}
                     </tbody>
                 </table> 
+            </div>
             </div>
         )
     }
