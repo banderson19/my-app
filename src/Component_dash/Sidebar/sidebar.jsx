@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
+
 
 import { links } from '../../data/dummy.js';
 import './sidebar.css';
@@ -9,19 +12,23 @@ function Sidebar() {
 
   const [sidebar, setSidebar] = useState(true)
 
-  const toggleSideBar = () => setSidebar(!sidebar)
+  const toggleSidebar = () => setSidebar(!sidebar)
 
   return (
-    <div className>
-      <div className="mt-10 ">
-        {/* <Link to="/" className="col"><button className="mx-1 btn btn-secondary">home</button></Link> */}
-
-        {sidebar ?
-          <nav >
-            <button onClick={() => toggleSideBar()}>close sidebar</button>
+    <div>
+      <div>
+          <Link to='#' className='menu-bars'>
+            <FaIcons.FaBars onClick={toggleSidebar} />
+          </Link>
+        </div>
+        {/* {sidebar ? */}
+          <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <Link to='#' className='menu-bars' onClick={toggleSidebar}>
+              <AiIcons.AiOutlineClose />
+            </Link>
             {links.map((item) => (
               <div key={item.title}>
-                <p className="text-gray-400 dark:text-gray-400 m-3 mt-4 uppercase">
+                <p className="m-3 mt-4">
                   {item.title}
                 </p>
                 {item.links.map((link) => (
@@ -41,12 +48,11 @@ function Sidebar() {
               </div>
             ))}
           </nav>
-          :
-          <button onClick={() => toggleSideBar()}>Open SideBar</button>}
+          {/* // :
+          // <Link to='#' className='menu-bars'>
+          //   <FaIcons.FaBars onClick={toggleSidebar} />
+          // </Link>} */}
       </div>
-
-    </div>
-    
   )
 }
 

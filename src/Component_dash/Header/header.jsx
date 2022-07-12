@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div className="container mt-3">
       <div className="row">
+       
         <header className="col">
           <h1>Swift Holiday Lighting</h1>
         </header>

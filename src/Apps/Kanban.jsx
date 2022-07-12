@@ -9,12 +9,11 @@ import Header from '../Component_dash/Header/header.jsx';
 const Kanban = () => {
   return (
     <div>
-      {/* <div className="w-25 position-fixed bg-light ">
+      <div className="w-25 position-fixed bg-light ">
         <Sidebar />
-      </div> */}
-      <div style={{ marginLeft: "25%" }}>
+      </div>
         <Header />
-        </div>
+        
       <KanbanComponent
         id="kanban"
         keyField="Status"
