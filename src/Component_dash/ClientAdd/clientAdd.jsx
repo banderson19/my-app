@@ -54,13 +54,10 @@ export default class ClientAdd extends Component {
     render() {
         return (
             <div>
-                 <div className="w-25 position-fixed bg-light ">
+                 <div>
                     <Sidebar />
                  </div>
-                 <div style={{marginLeft: "25%"}}>
-
-                <Header />
-                 
+                 <div>                 
                 <Link to="/dashboard">
                     <button>Client List</button>
                 </Link>

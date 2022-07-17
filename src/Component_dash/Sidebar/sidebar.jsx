@@ -3,56 +3,65 @@ import { Link, NavLink } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 
-
+import { useStateContext } from '../../context/ContextProvider.js';
 import { links } from '../../data/dummy.js';
+
 import './sidebar.css';
 
 
 function Sidebar() {
 
-  const [sidebar, setSidebar] = useState(true)
+  const {sidebarActive, setSidebarActive, handleClick} = useStateContext();
 
-  const toggleSidebar = () => setSidebar(!sidebar)
+  const toggleSidebar = () => setSidebarActive(!sidebarActive)
 
   return (
-    <div>
-      <div>
+    <div className="container mt-3">
+      <div className="row">
+        <div className="col">
+          {!sidebarActive ?
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={toggleSidebar} />
           </Link>
+          : ''}
         </div>
-        {/* {sidebar ? */}
-          <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-            <Link to='#' className='menu-bars' onClick={toggleSidebar}>
-              <AiIcons.AiOutlineClose />
-            </Link>
-            {links.map((item) => (
-              <div key={item.title}>
-                <p className="m-3 mt-4">
-                  {item.title}
-                </p>
-                {item.links.map((link) => (
-                  <NavLink
-                    to={`/dashboard/${link.name}`}
-                    key={link.name}
-                    className="nav-text"
-                  // onClick={toggleSideBar}
-                  //     style={({ isActive }) => ({
-                  //       backgroundColor: isActive ? currentColor : '',
-                  //     })}
-                  //     className={({ isActive }) => (isActive ? activeLink : normalLink)}
-                  >
-                    <ul>{link.name}</ul>
-                  </NavLink>
-                ))}
-              </div>
-            ))}
-          </nav>
-          {/* // :
-          // <Link to='#' className='menu-bars'>
-          //   <FaIcons.FaBars onClick={toggleSidebar} />
-          // </Link>} */}
+        <div className="col">
+          <header>
+            <h1>Swift Holiday Lighting</h1>
+          </header>
+        </div>
+        <div className="col">
+          <Link to="/" className="col"><button className="mx-1 btn btn-secondary">home</button></Link>
+          <Link to="/dashboard"><button className="mx-1 btn btn-secondary">Client List</button></Link>
+        </div>
       </div>
+      {/* {sidebar ? */}
+      <nav className={sidebarActive ? 'nav-menu active' : 'nav-menu'}>
+        {/* <nav> */}
+        <Link to='#' className='menu-bars' style={{marginTop: "-50px"}}onClick={toggleSidebar}>
+          <AiIcons.AiOutlineClose />
+        </Link>
+        {links.map((item) => (
+          <div key={item.title}>
+            <p className="m-3 mt-4">
+              {item.title}
+            </p>
+            {item.links.map((link) => (
+              <NavLink
+                to={`/dashboard/${link.name}`}
+                key={link.name}
+                className="nav-text"
+              >
+                <ul>{link.name}</ul>
+              </NavLink>
+              
+            ))}
+          </div>
+        ))}
+      </nav>
+      {/* header */}
+
+    </div>
   )
 }
 

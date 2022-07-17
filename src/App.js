@@ -9,6 +9,8 @@ import Profile from './Component_dash/Profile/profile.jsx';
 import ClientAdd from './Component_dash/ClientAdd/clientAdd.jsx';
 import { Calendar, Kanban, Expenses } from './Apps'
 
+// import {useStateContext} from './Context/ContextProvider';
+
 function App() {
   return (
     <div>
@@ -22,8 +24,6 @@ function App() {
           <Route path="/dashboard/calendar" element={<Calendar />} /> 
           <Route path="/dashboard/kanban" element={<Kanban />} /> 
           <Route path="/dashboard/expenses" element={<Expenses />} /> 
-
-
         </Routes>
       </BrowserRouter> 
     </div>

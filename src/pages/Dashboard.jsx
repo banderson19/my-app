@@ -1,23 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import Header from '../Component_dash/Header/header.jsx'
-import ClientList from '../Component_dash/ClientList/clientList.jsx';
+import Calendar from '../Apps/Calendar.jsx';
+import Kanban from '../Apps/Kanban.jsx';
+import Expenses from '../Apps/Expenses.jsx';
+import Header from '../Component_dash/Header/header.jsx';
+import Navbar from '../Component_dash/Navbar/Navbar.jsx';
 import Sidebar from '../Component_dash/Sidebar/sidebar.jsx';
-import Calendar from '../Apps/Calendar.jsx'
-import routes from '../routes';
+
+import { useStateContext } from '../context/ContextProvider.js';
 
 const Dashboard = () => {
+    const {isClicked} = useStateContext();
+
     return (
         <div className="">
-            {/* <div className="w-25 position-fixed bg-light "> */}
-                <Sidebar />
-            {/* </div> */}
-            {/* <div style={{marginLeft: "25%"}}> */}
-                <Header />
-                {/* <ClientList/> */}
+            <div>
                 <Calendar/>
-            {/* </div> */}
+                
+            </div>
         </div>
     )
 };

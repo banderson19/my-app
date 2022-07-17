@@ -11,59 +11,56 @@ export default class ClientList extends Component {
         this.state = { clientList: [] }
     }
 
+    
     componentWillMount() {
         console.log('hello')
         axios.get('http://localhost:3001/api/clients')
             .then(response => {
-                this.setState({ clientList: response.data})
+                this.setState({ clientList: response.data })
             })
             .catch(err => {
                 console.log('error', err)
             });
-    };    
+    };
 
     render() {
         console.log('111', this.state.clientList)
         return (
             <div>
-
-           
-                <div className="w-25 position-fixed bg-light ">
                 <Sidebar />
-            </div>
-            <div className="container"  style={{marginLeft: "25%"}}>
-                <div>
-                    <Link to={{pathname: '/dashboard/newclient'}}><button>Add new client</button></Link>
+                <div className="container">
+                    <div>
+                        <Link to={{ pathname: '/dashboard/newclient' }}><button>Add new client</button></Link>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Notes</th>
+                            <th>Client Acquired</th>
+                        </tr>
+                        <tbody>
+                            {this.state.clientList.map((client, i) => {
+                                return (
+                                    <tr key={i}>
+                                        <td>
+                                            <Link to={{ pathname: `/profile/${client._id}`, ojb: { client } }}>{client.firstName} {client.lastName}</Link>
+                                        </td>
+                                        <td>
+                                            {client.phoneNumber}
+                                        </td>
+                                        <td>
+                                            {client.notes}
+                                        </td>
+                                        <td>
+                                            {client.clientAcquired}
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
                 </div>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Phone</th>
-                        <th>Notes</th>
-                        <th>Client Acquired</th>
-                    </tr>
-                    <tbody>
-                        {this.state.clientList.map((client, i) => {
-                            return (
-                                <tr key={i}>
-                                    <td>
-                                        <Link to={{pathname: `/profile/${client._id}`, ojb: {client}}}>{client.firstName} {client.lastName}</Link>
-                                    </td>
-                                    <td>
-                                        {client.phoneNumber}
-                                    </td>
-                                    <td>
-                                        {client.notes}
-                                    </td>
-                                    <td>
-                                        {client.clientAcquired}
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                    </tbody>
-                </table> 
-            </div>
             </div>
         )
     }
