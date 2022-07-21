@@ -156,7 +156,43 @@ export const links = [
     }
   ];
 
-  export const clients = [
+  export const clientsGrid = [
+    { field: 'id',
+      headerText: 'Id',
+      width: '150',
+      // template: gridEmployeeProfile,
+      textAlign: 'Center' },
+    { field: 'firstName',
+      headerText: 'First Name',
+      width: '120',
+      textAlign: 'Center',
+    },
+    { field: 'lastName',
+      headerText: 'Last Name',
+      width: '120',
+      textAlign: 'Center',
+    },
+    { field: 'phoneNumber',
+      headerText: 'Phone',
+      width: '170',
+      textAlign: 'Center',
+    },
+    { field: 'notes',
+      headerText: 'Notes',
+      width: '120',
+      textAlign: 'Center',
+      // template: gridEmployeeCountry 
+    },
+  
+    { field: 'clientAquired',
+      headerText: 'clientAquired',
+      width: '135',
+      format: 'yMd',
+      textAlign: 'Center' 
+    }
+  ];
+  
+  export const clientsData = [
     {
       id: 1,
       firstName: 'Alissa',

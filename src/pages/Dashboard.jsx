@@ -13,7 +13,7 @@ const Dashboard = () => {
     const {isClicked} = useStateContext();
 
     return (
-        <div className="">
+        <div>
             <div>
                 <Calendar/>
                 

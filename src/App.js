@@ -4,7 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import ClientList from './Component_dash/ClientList/clientList.jsx';
+import ClientList from './Component_dash/ClientList/ClientList.jsx';
 import Profile from './Component_dash/Profile/profile.jsx';
 import ClientAdd from './Component_dash/ClientAdd/clientAdd.jsx';
 import { Calendar, Kanban, Expenses } from './Apps'

@@ -38,6 +38,8 @@
 
 ### Main focus
 * focus on ui appearence pulling from dummy data (integrate database in  version 2.0)
+* profile page and client list
+* change data base to clients and units in one home
 
 7/17/22 
 * hard code ui with dummy data

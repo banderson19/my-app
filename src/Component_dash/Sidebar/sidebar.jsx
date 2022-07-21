@@ -38,7 +38,7 @@ function Sidebar() {
       {/* {sidebar ? */}
       <nav className={sidebarActive ? 'nav-menu active' : 'nav-menu'}>
         {/* <nav> */}
-        <Link to='#' className='menu-bars' style={{marginTop: "-50px"}}onClick={toggleSidebar}>
+        <Link to='#' className='menu-bars' style={{marginTop: "100px"}}onClick={toggleSidebar}>
           <AiIcons.AiOutlineClose />
         </Link>
         {links.map((item) => (
