@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
+import * as GrIcons from 'react-icons/gr';
 import axios from 'axios';
 import Header from '../Header/header.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
@@ -72,10 +73,13 @@ const Profile = () => {
             {/* edit client info */}
             {editClient ?
                 <div className="container">
-                    <button className="btn btn-outline-info" onClick={() => setEditClient(false)}>Edit client</button>
-                    <Link to="/dashboard"><button className="btn btn-outline-danger mx-2" onClick={() => deleteClient()}>Delete Client</button></Link>
+                    <div className="row">
+                        <h5 className="col">{firstName} {lastName}</h5>
+                        <button className="col btn btn-outline-info" onClick={() => setEditClient(false)}>Edit client</button>
+                        <button className="col btn btn-outline-danger mx-2" onClick={() => deleteClient()}>Delete Client</button>
+                    </div>
                     <div className="row mt-2">
-                        <div className='col-3'>
+                        <div className='col-6 text-center'>
                             <img
                                 src={house}
                                 style={{height: '15rem'}}
@@ -85,13 +89,17 @@ const Profile = () => {
                         </div>
                         <div className="card col-6">
                             <div className="card-header row">
-                                <h3 className="col">{firstName} {lastName} </h3>
+                                <h3 className="col">{phoneNumber} </h3>
                                 <h6 className="col text-end">Date Acquired:{clientAcquired}</h6>
                             </div>
                             <div className="card-body">
                                 <div className="row">
-                                    <h3 className="col">Phone: {phoneNumber}</h3>
-                                    <h3 className="col">Address: </h3>
+                                    <GrIcons.GrLocation/>
+                                    {units.map((unit, i) => {
+                                        return (
+                                            <h5 className='text-center'>{unit.street}, {unit.city}, UT {unit.zip}</h5>
+                                        )
+                                    })}
                                 </div>
                             </div>
                         </div>

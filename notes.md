@@ -41,6 +41,16 @@
 * profile page and client list
 * change data base to clients and units in one home
 
+7/21/22
+* work on styling and getting the profile page with pretty UI
+* look up templates to do so.
+* add more data types to table schemas for clarity
+
+7/20/22
+* focused on getting the grid set up as the client list and the routing. 
+* need to set up a pretty profile page layout
+* Change client modal to hold customer address as well
+
 7/17/22 
 * hard code ui with dummy data
 * navbar button components
