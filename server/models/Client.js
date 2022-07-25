@@ -2,13 +2,39 @@ const { Schema, model } = require('mongoose');
 
 const ClientSchema = new Schema({
     firstName: {
-        type: String
+        type: String,
+        required: true,
+        trim: true,
+        upperCase: true
     },
     lastName: {
-        type: String
+        type: String,
+        required: true,
+        trim: true, 
+        upperCase: true
     },
     phoneNumber: {
-        type: String
+        type: String,
+        required: true,
+        unique: true,
+        match: /^(\()?\d{3}(\))?(-|\s)?\d{3}(-|\s)\d{4}$/
+    },
+    email: {
+        type: String,
+        trim: true,
+        lowercase: true,
+        unique: true,
+        match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    },
+    // main address
+    street: {
+        type: String,
+    },
+    city: {
+        type: String,
+    },
+    zip: {
+        type: Number
     },
     notes: {
         type: String
@@ -30,6 +56,7 @@ const ClientSchema = new Schema({
         }
     ]
 })
+
 
 const Client = model('Client', ClientSchema);
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import * as GrIcons from 'react-icons/gr';
+import * as FaIcons from 'react-icons/fa';
 import axios from 'axios';
 import Header from '../Header/header.jsx';
 import UpdateClient from '../UpdateClient/updateClient.jsx';
@@ -9,6 +10,7 @@ import UnitAdd from '../UnitAdd/unitAdd.jsx';
 import ServiceAdd from '../ServiceAdd/serviceAdd.jsx';
 
 import house from '../../assets/images/image1.jpeg';
+import { formatPhoneNumber } from '../../data/utils.js';
 
 const Profile = () => {
     const { clientId } = useParams();
@@ -62,6 +64,26 @@ const Profile = () => {
             })
     }
 
+    // date format
+    const months = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+    const dateObj = new Date(clientAcquired)
+    const formattedMonth = months[dateObj.getMonth()];
+
+    const day = dateObj.getDate()+1
+    const year = dateObj.getFullYear()
+    const formattedTimeStamp = `${formattedMonth} ${day}, ${year}`;
+
+    // phoneNumber format
+    // const formatPhoneNumber = (phoneNumberString) => {
+    //     var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+    //     var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+    //     if (match) {
+    //       return '(' + match[1] + ') ' + match[2] + '-' + match[3];
+    //     }
+    //     return null;
+    //   }
+
     console.log('profile client', client)
     console.log('profile units', units)
 
@@ -75,8 +97,8 @@ const Profile = () => {
                 <div className="container">
                     <div className="row">
                         <h5 className="col">{firstName} {lastName}</h5>
-                        <button className="col btn btn-outline-info" onClick={() => setEditClient(false)}>Edit client</button>
-                        <button className="col btn btn-outline-danger mx-2" onClick={() => deleteClient()}>Delete Client</button>
+                        <button className="col-1 btn btn-outline-info" size="sm" onClick={() => setEditClient(false)}><GrIcons.GrEdit/></button>
+                        <button className="col-1 btn btn-outline-danger mx-2" size="sm" onClick={() => deleteClient()}><FaIcons.FaTrash/></button>
                     </div>
                     <div className="row mt-2">
                         <div className='col-6 text-center'>
@@ -89,17 +111,21 @@ const Profile = () => {
                         </div>
                         <div className="card col-6">
                             <div className="card-header row">
-                                <h3 className="col">{phoneNumber} </h3>
-                                <h6 className="col text-end">Date Acquired:{clientAcquired}</h6>
+                                <h6 className="col">{formatPhoneNumber(phoneNumber)} </h6>
+                                <h6 className="col-6 text-end">Acquired: {formattedTimeStamp}</h6>
                             </div>
                             <div className="card-body">
                                 <div className="row">
                                     <GrIcons.GrLocation/>
                                     {units.map((unit, i) => {
                                         return (
-                                            <h5 className='text-center'>{unit.street}, {unit.city}, UT {unit.zip}</h5>
+                                            <h5 className='text-center mt-2'>{unit.street}, {unit.city}, UT {unit.zip}</h5>
                                         )
                                     })}
+                                </div>
+                                <div className="row mt-2">
+                                    <GrIcons.GrNotes/>
+                                    <h5 className='text-center mt-2'>{client.notes}</h5>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +146,7 @@ const Profile = () => {
             {/* add unit to the client profile */}
             {addUnit ?
                 <div className="container">
-                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>Add Unit</button>
+                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>+ Unit</button>
                 </div>
                 :
                 <div className="container">
@@ -171,10 +197,10 @@ const Profile = () => {
                                             {unit.colorPattern}
                                         </td>
                                         <td>
-                                            <button onClick={() => { setEditUnit(false); setIndex(i) }}>edit</button>
+                                            <button className="btn btn-outline-info" onClick={() => { setEditUnit(false); setIndex(i) }}><GrIcons.GrEdit/></button>
                                         </td>
                                         <td>
-                                            <button onClick={() => deleteUnit(unit._id)}>delete</button>
+                                            <button className="btn btn-outline-danger" onClick={() => deleteUnit(unit._id)}><FaIcons.FaTrash/></button>
                                         </td>
                                     </tr>
                                 )
@@ -184,7 +210,7 @@ const Profile = () => {
                     {/* add a service here  */}
                     {addService ?
                         <div>
-                            <button className=" my-2 btn btn-outline-success" onClick={() => setAddService(false)}>Add Service</button>
+                            <button className=" my-2 btn btn-outline-success" onClick={() => setAddService(false)}>+ Service</button>
                         </div>
                         :
                         <div className="container mb-4">

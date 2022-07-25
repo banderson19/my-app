@@ -6,6 +6,7 @@ import './clientList.css';
 
 import Sidebar from '../Sidebar/sidebar.jsx';
 import { clientsGrid, clientsData } from '../../data/dummy.js';
+import { formatPhoneNumber } from '../../data/utils.js';
 import { useStateContext } from '../../context/ContextProvider.js';
 
 
@@ -36,6 +37,7 @@ const ClientList = () => {
         console.log("row selected", props)
         navigate(`/profile/${props.data._id}`)
     }
+   
 
         
   return (
@@ -58,9 +60,9 @@ const ClientList = () => {
                     <ColumnDirective field='_id' headerText='ID' textAlign='Center' width='120' />
                     <ColumnDirective field='firstName' headerText='First Name'  textAlign='Center'  width='120'/>
                     <ColumnDirective field='lastName' headerText='Last Name'  textAlign='Center'  width='120'/>
-                    <ColumnDirective field='phoneNumber' headerText='Phone'  textAlign='Center'  width='120'/> 
+                    <ColumnDirective field='phoneNumber' headerText='Phone' textAlign='Center'  width='120'/> 
                     <ColumnDirective field='notes' headerText='Notes'  textAlign='Center' width='120'/>
-                    <ColumnDirective field='clientAquired' headerText='Client Aquired'  textAlign='Center'  width='120'/>
+                    <ColumnDirective field='clientAcquired' headerText='Client Acquired'  textAlign='Center'  width='120'/>
                 </ColumnsDirective>
                 <Inject services={[Search, Page]}/>
             </GridComponent>
