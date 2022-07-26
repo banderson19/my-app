@@ -61,3 +61,15 @@ const ClientSchema = new Schema({
 const Client = model('Client', ClientSchema);
 
 module.exports = Client
+
+// {
+//     "firstName": "",
+//     "lastName": "",
+//     "phoneNumber": "",
+// 		"email": "",
+// 		"street": "",
+// 		"city": "",
+// 		"zip": "",
+//     "notes": "",
+// 		"clientAcquired": "2018-10-01T00:00:00.864Z"
+// }
