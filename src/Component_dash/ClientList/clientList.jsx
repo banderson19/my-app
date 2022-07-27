@@ -32,12 +32,12 @@ const ClientList = () => {
         }
         getClients()
     }, [])
-
+    // this.dataSource = DataUtil.parse.parseJson(data); 
+    // clients = parse.parseJson(clients);
     const rowSelected = (props) => {
         console.log("row selected", props)
         navigate(`/profile/${props.data._id}`)
     }
-   
 
         
   return (
@@ -57,16 +57,20 @@ const ClientList = () => {
                 // toolbar={toolbarOptions}
             >
                 <ColumnsDirective>   
-                    <ColumnDirective field='_id' headerText='ID' textAlign='Center' width='120' />
-                    <ColumnDirective field='firstName' headerText='First Name'  textAlign='Center'  width='120'/>
-                    <ColumnDirective field='lastName' headerText='Last Name'  textAlign='Center'  width='120'/>
-                    <ColumnDirective field='phoneNumber' headerText='Phone' textAlign='Center'  width='120'/> 
+                    <ColumnDirective field='_id' headerText='ID' textAlign='Center' width='75' />
+                    <ColumnDirective field='firstName' headerText='First Name'  textAlign='Center'  width='100'/>
+                    <ColumnDirective field='lastName' headerText='Last Name'  textAlign='Center'  width='100'/>
+                    <ColumnDirective field='phoneNumber' headerText='Phone' textAlign='Center'  width='120'/>
+                    <ColumnDirective field='email' headerText='Email' textAlign='Center'  width='120'/>
+                    <ColumnDirective field='street' headerText='Street' textAlign='Center'  width='120'/>
+                    <ColumnDirective field='city' headerText='City' textAlign='Center'  width='120'/>
+                    <ColumnDirective field='zip' headerText='Zip' textAlign='Center'  width='120'/>
                     <ColumnDirective field='notes' headerText='Notes'  textAlign='Center' width='120'/>
-                    <ColumnDirective field='clientAcquired' headerText='Client Acquired'  textAlign='Center'  width='120'/>
+                    <ColumnDirective field='clientAcquired' headerText='Client Acquired'  type="date" format='dd/MM/yyyy' textAlign='Center'  width='120'/>
                 </ColumnsDirective>
                 <Inject services={[Search, Page]}/>
             </GridComponent>
-        </div>    
+        </div> 
     </div>
   )
 }

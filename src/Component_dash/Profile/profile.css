@@ -1,0 +1,7 @@
+table {
+    border-right: 1px solid #ddd
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+    border-right: hidden;
+  }
