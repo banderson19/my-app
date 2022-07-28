@@ -41,6 +41,10 @@
 * profile page and client list
 * change data base to clients and units in one home
 
+7/27/22
+* still styling profile page. 
+* connect with unit and service attached too it. 
+
 7/21/22
 * work on styling and getting the profile page with pretty UI
 * look up templates to do so.

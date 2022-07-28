@@ -170,13 +170,13 @@ const Profile = () => {
                     />
                 </div>
             }
-            
+
             {/* new unit component */}
             {units.map((unit, i) => {
                 return (
 
                     <div className="h-100 gradient-custom-2">
-                        <div className="container py-5 h-100">
+                        <div className="container py-2 h-100">
                             <div className="row d-flex justify-content-center align-items-center h-100">
                                 <div className="col col-lg-9 col-xl-7">
                                     <div className="card">
@@ -185,9 +185,8 @@ const Profile = () => {
                                                 <img src={house}
                                                     alt="clients house" className="img-fluid img-thumbnail mt-4 mb-3"
                                                     style={{ width: "150px", zIndex: "1" }} />
-                                                <button type="button" className="btn btn-outline-dark mt-1" size="sm" style={{ zIndex: "1" }} onClick={() => setEditClient(false)}>Edit Info</button>
-                                                <button type="button" className="btn btn-outline-danger mt-2" size="sm" style={{ zIndex: "1" }} onClick={() => deleteClient()}>Delete Profile</button>
-                                            </div>
+                                                <button className=" my-2 btn btn-outline-success" onClick={() => setAddService(false)}>+ Service</button>
+                                                <button className="btn btn-outline-info" onClick={() => { setEditUnit(false); setIndex(i) }}><GrIcons.GrEdit /></button>                                            </div>
                                             <div className="ms-3 mb-1" style={{ marginTop: "80px" }}>
                                                 <h5>{unit.street} {unit.city}, UT {unit.zip}</h5>
                                                 <p className="mb-1">{unit.footage}</p>
@@ -213,6 +212,41 @@ const Profile = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="row d-flex justify-content-center align-items-center h-100">
+                            <table className="col col-lg-7 mx-2">
+                                <tr>
+                                    <th>Service Date</th>
+                                    <th>Service</th>
+                                    <th>Notes</th>
+                                    <th>Charge</th>
+                                    <th>Cost</th>
+                                </tr>
+                                <tbody>
+                                    {services.map((service, i) => {
+                                        console.log('service', service)
+                                        return (
+                                            <tr key={i}>
+                                                <td>
+                                                    {service.serviceDate}
+                                                </td>
+                                                <td>
+                                                    {service.service}
+                                                </td>
+                                                <td>
+                                                    {service.notes}
+                                                </td>
+                                                <td>
+                                                    {service.charge}
+                                                </td>
+                                                <td>
+                                                    {service.cost}
+                                                </td>
+                                            </tr>
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,13 @@ const UnitSchema = new Schema({
     notes: {
         type: String
     },
-    colorPattern: []
+    colorPattern: [],
+    // services: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Service'
+    //     }
+    // ]
 })
 
 const Unit = model('Unit', UnitSchema);
