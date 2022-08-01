@@ -26,15 +26,18 @@ const ClientSchema = new Schema({
         unique: true,
         match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     },
-    // main address
+    // billing address
     street: {
         type: String,
+        upperCase: true
     },
     city: {
         type: String,
+        upperCase: true
     },
     zip: {
-        type: Number
+        type: Number,
+        trim: true
     },
     notes: {
         type: String

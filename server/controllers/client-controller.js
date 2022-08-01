@@ -7,12 +7,8 @@ const clientController = {
         // populate data from all corresponding data
             .populate({
                 path: 'units',
-                select: '-__v'
-            })
-            // populate data from other tables
-            .populate({
-                path: 'services',
-                select: '-__v'
+                select: '-__v',
+                populate: { path: 'services' }
             })
             .select('-__v')
             // soret desending
@@ -30,11 +26,8 @@ const clientController = {
         // populate with all corresponding tables 
             .populate({
                 path: 'units',
-                select: '-__v'
-            })
-            .populate({
-                path: 'services',
-                select: '-__v'
+                select: '-__v',
+                populate: { path: 'services'}
             })
             .then(dbClientData => {
                 // If no client is found, send 404

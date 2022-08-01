@@ -2,6 +2,21 @@ const { Unit, Client } = require('../models');
 
 const unitController = {
     
+  // get all Units
+  getUnits (req, res) {
+    Unit.find({_id: params.id})
+      .populate({
+        path: 'services',
+        select: '-__v'
+      })
+      .select('-__v')
+      .sort({_id:-1})
+      .then(dbUnitData => res.json(dbUnitData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err)
+      })
+  },
   // add unit to Client
   addUnit({ params, body }, res) {
     console.log('body', body);

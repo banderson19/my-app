@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { getAllUnit, getUnitById, addUnit, updateUnit, deleteUnit } = require('../../controllers/unit-controller');
+const { getUnits, getUnitById, addUnit, updateUnit, deleteUnit } = require('../../controllers/unit-controller');
 
 
 // /api/units/
 // router.route('/').get(getAllUnit);
 
 // /api/units/<unitId>
-// router.route('/:unitId').get(getUnitById);
+// router.route('/:unitId').get(getUnits);
 
 // /api/units/<clientId>
 router.route('/:clientId').post(addUnit);

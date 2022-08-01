@@ -31,20 +31,20 @@ const Profile = () => {
     console.log('client ojbect', client)
     // useEffect to prevent rerender of useState
     useEffect(() => {
-        const getClient = async () => {
+        const fetchData = async () => {
             await axios.get(`http://localhost:3001/api/clients/${clientId}`)
                 .then(response => response.data)
                 .then(response => {
                     console.log('info', response)
                     setClient(response)
                     setUnits(response.units)
-                    setServices(response.services)
+                    setServices(response.units.services)
                 })
                 .catch(err => {
                     console.log('error', err)
                 });
         }
-        getClient();
+        fetchData();
     }, [])
 
     const deleteClient = () => {
@@ -90,6 +90,7 @@ const Profile = () => {
 
     console.log('profile client', client)
     console.log('profile units', units)
+    console.log('services', services)
 
     return (
         <div>
@@ -137,10 +138,6 @@ const Profile = () => {
                                     </div>
                                 </div>
 
-                                <div className="float-right">
-                                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>+ Unit</button>
-                                    <button className=" my-2 btn btn-outline-success" onClick={() => setAddService(false)}>+ Service</button>
-                                </div>
 
                                 <div className="card-body p-4 text-black">
                                     <div className="mb-5">
@@ -148,10 +145,13 @@ const Profile = () => {
                                         <div className="p-4" style={{ backgroundColor: "#f8f9fa" }}>
                                             <p className="font-italic mb-1">Date Acquired: <span className="text-muted">{formattedTimeStamp}</span></p>
                                             <p className="font-italic mb-1">Email: <span className="text-muted">{email}</span> </p>
-                                            <p className="font-italic mb-1">Address: <span className="text-muted">{street}, {city} UT, {zip}</span></p>
+                                            <p className="font-italic mb-1">Billing Address: <span className="text-muted">{street}, {city} UT, {zip}</span></p>
                                             <p className="font-italic mb-0">Notes: <span className="text-muted">{notes}</span></p>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="float-right">
+                                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>+ Unit</button>
                                 </div>
                             </div>
                         </div>
@@ -173,6 +173,7 @@ const Profile = () => {
 
             {/* new unit component */}
             {units.map((unit, i) => {
+                console.log('map unit', unit)
                 return (
 
                     <div className="h-100 gradient-custom-2">
@@ -214,157 +215,56 @@ const Profile = () => {
                                 </div>
                             </div>
                             <div className="row d-flex justify-content-center align-items-center h-100">
-                            <table className="col col-lg-7 mx-2">
-                                <tr>
-                                    <th>Service Date</th>
-                                    <th>Service</th>
-                                    <th>Notes</th>
-                                    <th>Charge</th>
-                                    <th>Cost</th>
-                                </tr>
-                                <tbody>
-                                    {services.map((service, i) => {
-                                        console.log('service', service)
-                                        return (
-                                            <tr key={i}>
-                                                <td>
-                                                    {service.serviceDate}
-                                                </td>
-                                                <td>
-                                                    {service.service}
-                                                </td>
-                                                <td>
-                                                    {service.notes}
-                                                </td>
-                                                <td>
-                                                    {service.charge}
-                                                </td>
-                                                <td>
-                                                    {service.cost}
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
-                            </table>
+                                <table className="col col-lg-7 mx-2">
+                                    <tr>
+                                        <th>Service Date</th>
+                                        <th>Service</th>
+                                        <th>Notes</th>
+                                        <th>Charge</th>
+                                        <th>Cost</th>
+                                    </tr>
+                                    <tbody>
+                                        {unit.services.map((service, i) => {
+                                            console.log('service', service)
+                                            return (
+                                                <tr key={i}>
+                                                    <td>
+                                                        {service.serviceDate}
+                                                    </td>
+                                                    <td>
+                                                        {service.service}
+                                                    </td>
+                                                    <td>
+                                                        {service.notes}
+                                                    </td>
+                                                    <td>
+                                                        {service.charge}
+                                                    </td>
+                                                    <td>
+                                                        {service.cost}
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </table>
                             </div>
+                            {/* add a service here turn into bet ui add modal*/}
+                            {addService ?
+                                <div>
+                                </div>
+                                :
+                                <div className="container mb-4">
+                                    <button className="my-2 btn btn-secondary" onClick={() => setAddService(true)}>Back</button>
+                                    <ServiceAdd id={clientId} />
+                                </div>
+
+                            }
                         </div>
                     </div>
                 )
             })}
-            {addUnit ?
-
-                <div className="container">
-                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>+ Unit</button>
-                </div>
-                :
-                <div className="container">
-                    <button className="mt-2 btn btn-secondary" onClick={() => setAddUnit(true)}>Back</button>
-                    <UnitAdd id={clientId} />
-                </div>
-
-            }
-            {/* toggle between displaying the unit info  or editing the info */}
-            {editUnit ?
-                <div className="container">
-                    <table>
-                        <tr>
-                            <th>Address</th>
-                            <th>Linear Feet</th>
-                            <th>Description</th>
-                            <th>Notes</th>
-                            <th>Color Pattern</th>
-                            <th></th>
-                            <th></th>
-
-                        </tr>
-
-                        <tbody>
-                            {units.map((unit, i) => {
-                                console.log('unit', unit)
-                                return (
-                                    <tr key={i}>
-                                        <td>
-                                            {unit.street} {unit.city}, UT {unit.zip}
-                                        </td>
-                                        <td>
-                                            {unit.footage}
-                                        </td>
-                                        <td>
-                                            {unit.unitDescription}
-                                        </td>
-                                        <td>
-                                            {unit.notes}
-                                        </td>
-                                        <td>
-                                            {unit.colorPattern}
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-outline-info" onClick={() => { setEditUnit(false); setIndex(i) }}><GrIcons.GrEdit /></button>
-                                        </td>
-                                        <td>
-                                            <button className="btn btn-outline-danger" onClick={() => deleteUnit(unit._id)}><FaIcons.FaTrash /></button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    {/* add a service here  */}
-                    {addService ?
-                        <div>
-                            <button className=" my-2 btn btn-outline-success" onClick={() => setAddService(false)}>+ Service</button>
-                        </div>
-                        :
-                        <div className="container mb-4">
-                            <button className="my-2 btn btn-secondary" onClick={() => setAddService(true)}>Back</button>
-                            <ServiceAdd id={clientId} />
-                        </div>
-
-                    }
-                    <table>
-                        <tr>
-                            <th>Service Date</th>
-                            <th>Service</th>
-                            <th>Notes</th>
-                            <th>Charge</th>
-                            <th>Cost</th>
-                        </tr>
-                        <tbody>
-                            {services.map((service, i) => {
-                                console.log('service', service)
-                                return (
-                                    <tr key={i}>
-                                        <td>
-                                            {service.serviceDate}
-                                        </td>
-                                        <td>
-                                            {service.service}
-                                        </td>
-                                        <td>
-                                            {service.notes}
-                                        </td>
-                                        <td>
-                                            {service.charge}
-                                        </td>
-                                        <td>
-                                            {service.cost}
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-                :
-                <div className='container'>
-                    <button className="btn btn-secondary" onClick={() => setEditUnit(true)}>back</button>
-                    <UpdateUnit id={clientId} index={index} units={units} />
-                </div>
-
-            }
         </div>
     )
-
 };
 export default Profile

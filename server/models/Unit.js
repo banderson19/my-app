@@ -20,12 +20,12 @@ const UnitSchema = new Schema({
         type: String
     },
     colorPattern: [],
-    // services: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Service'
-    //     }
-    // ]
+    services: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Service'
+        }
+    ]
 })
 
 const Unit = model('Unit', UnitSchema);

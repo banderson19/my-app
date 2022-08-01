@@ -36,10 +36,22 @@
 * Keep track of expenses
 * track miles
 
+6202cb66a480db015b40894a
+
+6202cf855e1a27d9e545d567
+
 ### Main focus
 * focus on ui appearence pulling from dummy data (integrate database in  version 2.0)
 * profile page and client list
 * change data base to clients and units in one home
+
+7/31/22 (Review with Brian)
+* Intigrate with quickbooks api
+* Billing address added to client database
+* Status on client. - (installed, schedueled, warm, rejected, nutured, follow up)
+* Units tied to client. Services tied to units 
+* Lead source -> ROI, GMB(tags)/ FB / other
+
 
 7/27/22
 * still styling profile page. 

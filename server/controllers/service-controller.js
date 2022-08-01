@@ -2,14 +2,20 @@ const { Service, Client, Unit } = require('../models');
 
 const serviceController = {
 
-    // add service to Client
+    // get services to Unit
+    // getServices({params, body}, res) {
+    //     console.log('service params', params)
+    //     console.log('service body', body)
+
+    // }
+    // add service to Unit
     addService({params, body}, res) {
         console.log('service body', body);
-        console.log('service client id', params.clientId)
+        console.log('service client id', params.unitId)
         Service.create(body)
             .then(({ _id }) => {
-                return Client.findOneAndUpdate(
-                    { _id: params.clientId }, 
+                return Unit.findOneAndUpdate(
+                    { _id: params.unitId }, 
                     { $push: { services: _id } }, 
                     { new: true }
                 );

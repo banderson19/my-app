@@ -3,10 +3,10 @@ const { addService, updateService, deleteService } = require('../../controllers/
 
 
 // /api/services/<clientId>
-router.route('/:clientId').post(addService);
+router.route('/:unitId').post(addService);
 
 // /api/services/<clientId>/<serviceId>
-router.route('/:clientId/:serviceId').delete(deleteService).put(updateService)
+router.route('/:unitId/:serviceId').delete(deleteService).put(updateService)
 
 
 module.exports = router;
