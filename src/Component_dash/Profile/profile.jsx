@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal'
 import * as GrIcons from 'react-icons/gr';
 import * as FaIcons from 'react-icons/fa';
 import './profile.css';
@@ -9,8 +10,10 @@ import UpdateClient from '../UpdateClient/updateClient.jsx';
 import UpdateUnit from '../UpdateUnit/updateUnit.jsx';
 import UnitAdd from '../UnitAdd/unitAdd.jsx';
 import ServiceAdd from '../ServiceAdd/serviceAdd.jsx';
+import AddService from '../AddService/addService.jsx';
 
 import house from '../../assets/images/image1.jpeg';
+import mapIcon from '../../assets/images/mapicon.png';
 import { formatPhoneNumber } from '../../data/utils.js';
 
 const Profile = () => {
@@ -25,6 +28,8 @@ const Profile = () => {
     const [editUnit, setEditUnit] = useState(true);
     const [addUnit, setAddUnit] = useState(true);
     const [addService, setAddService] = useState(true);
+
+    const [show, setShow] = useState(false);
 
     // desctructure client with property names
     const { firstName, lastName, phoneNumber, email, street, city, zip, notes, clientAcquired } = client;
@@ -46,6 +51,9 @@ const Profile = () => {
         }
         fetchData();
     }, [])
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const deleteClient = () => {
         console.log('client delete')
@@ -75,19 +83,6 @@ const Profile = () => {
     const year = dateObj.getFullYear()
     const formattedTimeStamp = `${formattedMonth} ${day}, ${year}`;
 
-    // if client has no secondary units Hide component
-
-
-    // phoneNumber format
-    // const formatPhoneNumber = (phoneNumberString) => {
-    //     var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
-    //     var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    //     if (match) {
-    //       return '(' + match[1] + ') ' + match[2] + '-' + match[3];
-    //     }
-    //     return null;
-    //   }
-
     console.log('profile client', client)
     console.log('profile units', units)
     console.log('services', services)
@@ -98,79 +93,171 @@ const Profile = () => {
                 <Header />
             </div>
             {/* edit client info */}
-            {editClient ?
-                <div className="h-100 gradient-custom-2">
-                    <div className="container py-5 h-100">
-                        <div className="row d-flex justify-content-center align-items-center h-100">
-                            <div className="col col-lg-9 col-xl-7">
-                                <div className="card">
-                                    {/* make card background match clients colors pattern */}
-                                    <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: "#000", height: "200px" }}>
-                                        <div className="ms-4 mt-5 d-flex flex-column" style={{ width: "150px" }}>
-                                            <img src={house}
-                                                alt="clients house" className="img-fluid img-thumbnail mt-4 mb-3"
-                                                style={{ width: "150px", zIndex: "1" }} />
-                                            <button type="button" className="btn btn-outline-dark mt-1" size="sm" style={{ zIndex: "1" }} onClick={() => setEditClient(false)}>Edit Info</button>
-                                            <button type="button" className="btn btn-outline-danger mt-2" size="sm" style={{ zIndex: "1" }} onClick={() => deleteClient()}>Delete Profile</button>
+            <section style={{ backgroundColor: "#eee" }}>
+                <div className="container py-5">
+                    <div className="row">
+                        <div className="col">
+                            <nav aria-label="breadcrumb" className="bg-light rounded-3 p-3 mb-4">
+                                <ol className="breadcrumb mb-0">
+                                    <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li className="breadcrumb-item"><a href="#">Client List</a></li>
+                                    <li className="breadcrumb-item active" aria-current="page">Client Profile</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-lg-4">
+                            <div className="card mb-4">
+                                <div className="card-body text-center">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                                        className="rounded-circle img-fluid" style={{ width: "150px" }} />
+                                    <h5 className="my-3">{firstName} {lastName}</h5>
+                                    <p className="text-muted mb-4">{city}</p>
+                                    <div className="d-flex justify-content-center mb-2">
+                                    <button type="button" className="btn btn-outline-dark" size="sm" style={{ zIndex: "1" }} onClick={() => setEditClient(false)}>Edit Info</button>
+                                    <button type="button" className="btn btn-outline-danger" size="sm" style={{ zIndex: "1" }} onClick={() => deleteClient()}>Delete Profile</button>
+                                    <button className="btn btn-outline-success" size="sm" style={{ zIndex: "1" }}><AddService /></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="card mb-4 mb-lg-4">
+                                <div className="card-body p-0">
+                                    <img src={house}
+                                        alt="clients house" className="img-fluid img-thumbnail rounded mx-auto d-block"
+                                        style={{ width: "200px", height: "200px", zIndex: "1" }} />
+                                </div>
+                            </div>
+                            <div className="card mb-4 mb-lg-0">
+                                <div className="card-body p-0">
+                                    <img src={mapIcon}
+                                        alt="clients house" className="img-fluid rounded mx-auto d-block img-thumbnail "
+                                        style={{ width: '200px', height: '200px', zIndex: "1" }} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-8">
+                            <div className="card mb-4">
+                                <div className="card-body">
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Date Aqcuired</p>
                                         </div>
-                                        <div className="ms-3 mb-1" style={{ marginTop: "80px" }}>
-                                            <h5>{firstName} {lastName}</h5>
-                                            <p className="mb-1">{formatPhoneNumber(phoneNumber)} </p>
-                                            <p className="mb-1">{formattedTimeStamp}</p>
-                                            <p className="mb-1">email: {email} </p>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{formattedTimeStamp}</p>
                                         </div>
                                     </div>
-                                    <div className="p-4 text-black" style={{ backgroundColor: "#f8f9fa" }}>
-                                        <div className="d-flex justify-content-end text-center py-1">
-                                            <div>
+                                    <div>
+                                        <hr />
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Email</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{email}</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Phone</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{formatPhoneNumber(phoneNumber)}</p>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div className="row">
+                                        <div className="col-sm-3">
+                                            <p className="mb-0">Billing Address</p>
+                                        </div>
+                                        <div className="col-sm-9">
+                                            <p className="text-muted mb-0">{street}, {city} UT, {zip}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="row mb-4">
+                                <div className="col-md-6">
+                                    <div className="card mb-4 mb-md-0">
+                                        <div className="card-body">
+                                            <p className="mb-4 text-primary me-1">Client Rev
+                                            </p>
+                                            <div className="row text-center mb-4">
+                                                <div className="col-md-6">
                                                 <p className="mb-1 h5">3</p>
                                                 <p className="small text-muted mb-0"># of yrs serviced</p>
+                                                </div>
+                                                <div className="col-md-6">
+                                                <p className="mb-1 h5">3</p>
+                                                <p className="small text-muted mb-0"># of yrs serviced</p>
+                                                </div>
                                             </div>
-                                            <div className="px-3">
-                                                <p className="mb-1 h5">$150</p>
-                                                <p className="small text-muted mb-0">quoted install</p>
-                                            </div>
-                                            <div>
+                                            <div className="row mb-4">
+                                                <div className="col-md text-center">
                                                 <p className="mb-1 h5">$500</p>
                                                 <p className="small text-muted mb-0">Total rev</p>
+                                                </div>
+                                                <div className="col-md text-center">
+                                                <p className="mb-1 h5">4</p>
+                                                <p className="small text-muted mb-0">number of units</p>
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-md text-center">
+                                                <p className="mb-1 h5">$500</p>
+                                                <p className="small text-muted mb-0">First Initial Install</p>
+                                                </div>
+                                                <div className="col-md text-center">
+                                                <p className="mb-1 h5">$150</p>
+                                                <p className="small text-muted mb-0">quoted amount</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div className="col-md-6">
+                                    <div className="card mb-4 mb-md-0">
+                                        <div className="card-body">
+                                            <p className="mb-4 text-primary">Client Status
+                                            </p>
+                                            <p className="mb-1" style={{ fontSize: ".77rem;" }}>Warm, active</p>
+                                            <div className="progress rounded" style={{ height: "5px" }}>
+                                                <div className="progress-bar" role="progressbar" style={{ width: "80%" }} aria-valuenow="80"
+                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                            <p className="mt-4 mb-1" style={{ fontSize: ".77rem" }}>Referrals</p>
+                                            <ol>
+                                                <li>client</li>
+                                                <li>client 2</li>
+                                            </ol>
+                                            <p className="mt-4 mb-1" style={{ fontSize: ".77rem" }}>Type of service</p>
+                                            <div className="row flex-wrap">
+                                                <button className="my-1 mx-1 btn btn-small btn-secondary" style={{width: '150px'}}>Christmas Lights</button>
+                                                <button className="my-1 mx-1 btn btn-small btn-secondary" style={{width: '150px'}}>Christmas Lights</button>
+                                                <button className="my-1 mx-1 btn btn-small btn-secondary" style={{width: '150px'}}>Christmas Lights</button>
+                                                <button className="my-1 mx-1 btn btn-small btn-secondary" style={{width: '150px'}}>Christmas Lights</button>
 
-
-                                <div className="card-body p-4 text-black">
-                                    <div className="mb-5">
-                                        <p className="lead fw-normal mb-1">Main Info</p>
-                                        <div className="p-4" style={{ backgroundColor: "#f8f9fa" }}>
-                                            <p className="font-italic mb-1">Date Acquired: <span className="text-muted">{formattedTimeStamp}</span></p>
-                                            <p className="font-italic mb-1">Email: <span className="text-muted">{email}</span> </p>
-                                            <p className="font-italic mb-1">Billing Address: <span className="text-muted">{street}, {city} UT, {zip}</span></p>
-                                            <p className="font-italic mb-0">Notes: <span className="text-muted">{notes}</span></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="float-right">
-                                    <button className="my-2 btn btn-outline-success" onClick={() => setAddUnit(false)}>+ Unit</button>
+                            </div>
+                            <div className="row">
+                                <div className="col-md">
+                                    <div className="card mb-4 mb-md-0">
+                                        <div className="card-body" style={{height: '187px'}}>
+                                            <h6 className="mb-4"><span className="text-primary font-italic me-1">Notes</span>
+                                            </h6>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                :
-                <div className="container">
-                    <button className="my-2 btn btn-secondary" onClick={() => setEditClient(true)}>back</button>
-                    <UpdateClient
-                        id={clientId}
-                        firstName={firstName}
-                        lastName={lastName}
-                        phoneNumber={phoneNumber}
-                        note={notes}
-                    />
-                </div>
-            }
-
+            </section>
+            
             {/* new unit component */}
             {units.map((unit, i) => {
                 console.log('map unit', unit)
@@ -179,7 +266,7 @@ const Profile = () => {
                     <div className="h-100 gradient-custom-2">
                         <div className="container py-2 h-100">
                             <div className="row d-flex justify-content-center align-items-center h-100">
-                                <div className="col col-lg-9 col-xl-7">
+                                <div className="col">
                                     <div className="card">
                                         <div className="rounded-top text-white d-flex flex-row" style={{ backgroundColor: "#000", height: "200px" }}>
                                             <div className="ms-4 mt-5 d-flex flex-column" style={{ width: "150px" }}>
