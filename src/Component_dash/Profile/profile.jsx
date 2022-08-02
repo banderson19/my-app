@@ -26,7 +26,6 @@ const Profile = () => {
     const [services, setServices] = useState([]);
     const [editClient, setEditClient] = useState(true);
     const [editUnit, setEditUnit] = useState(true);
-    const [addUnit, setAddUnit] = useState(true);
     const [addService, setAddService] = useState(true);
 
     const [show, setShow] = useState(false);

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { addService, updateService, deleteService } = require('../../controllers/service-controller');
 
 
-// /api/services/<clientId>
+// /api/services/<unitId>
 router.route('/:unitId').post(addService);
 
 // /api/services/<clientId>/<serviceId>
