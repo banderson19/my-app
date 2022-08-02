@@ -5,12 +5,17 @@ import Modal from 'react-bootstrap/Modal'
 
 
 const AddService = (props) => {
-    // let data = props
+    let {data} = props
     const [show, setShow] = useState(false);
-    const [data, setData] = useState({})
-    setData(props)
+    // const [data, setData] = useState({});
 
-    let newUnits = data.units
+    // setData(...props)
+
+    // useEffect(() => {
+    //     setData(client)
+    //     console.log('useeffect run')
+    // }, [])
+
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -19,7 +24,8 @@ const AddService = (props) => {
     
 
     console.log('444', data)
-    console.log(newUnits)
+    console.log('555', data[0])
+    // console.log(newUnits)
     return (
         <div>
             <section id='serviceForm'>
@@ -42,10 +48,10 @@ const AddService = (props) => {
                             <label for="inputUnit" className="form-label">Unit</label>
                             <select id="inputUnit" className="form-select">
                                 <option selected>Select Unit</option>
-                                {/* {newUnits.map((unit, i) =>                                   
+                                {data.map((unit, i) =>                                   
                                         <option key={unit._id}>{unit.street} {unit.city} Ut {unit.zip}</option>
-                                )} */}
-                            </select>
+                                )}
+                            </select> 
                         </div>
                         <div className="col-md-6">
                             <label for="inputDate" className="form-label">Date</label>

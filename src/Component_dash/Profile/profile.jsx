@@ -117,7 +117,7 @@ const Profile = () => {
                                     <div className="d-flex justify-content-center mb-2">
                                     <button type="button" className="btn btn-outline-dark" size="sm" style={{ zIndex: "1" }} onClick={() => setEditClient(false)}>Edit Info</button>
                                     <button type="button" className="btn btn-outline-danger" size="sm" style={{ zIndex: "1" }} onClick={() => deleteClient()}>Delete Profile</button>
-                                    <button className="btn btn-outline-success" size="sm" style={{ zIndex: "1" }}><AddService {...client}/></button>
+                                    <button className="btn btn-outline-success" size="sm" style={{ zIndex: "1" }}><AddService data={units}/></button>
                                     </div>
                                 </div>
                             </div>
