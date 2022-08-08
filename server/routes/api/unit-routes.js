@@ -6,7 +6,7 @@ const { getUnits, getUnitById, addUnit, updateUnit, deleteUnit } = require('../.
 // router.route('/').get(getAllUnit);
 
 // /api/units/<unitId>
-// router.route('/:unitId').get(getUnits);
+router.route('/:unitId').get(getUnits);
 
 // /api/units/<clientId>
 router.route('/:clientId').post(addUnit);

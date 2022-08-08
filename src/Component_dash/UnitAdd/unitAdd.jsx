@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Modal from 'react-bootstrap/Modal'
 
-const UnitAdd = () => {
-    const params = useParams();
-    const clientId = params.clientId
-    console.log('zz',clientId)
+
+const UnitAdd = (props) => {
+    let { data } = props
+    const [show, setShow] = useState(false);
+    const [addUnit, setAddUnit] = useState(false);
     const [formData, setFormData] = useState({
         street: '',
         city: '',
@@ -17,55 +18,77 @@ const UnitAdd = () => {
 
     })
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('111',  formData);
+        console.log('111', formData);
         const data = formData
-        axios.post(`http://localhost:3001/api/units/${clientId}`, data)
-            .then((res) => {
-                console.log(res)
-            }).catch((error) => {
-                console.log(error)
-            });
+        // axios.post(`http://localhost:3001/api/units/${clientId}`, data)
+        //     .then((res) => {
+        //         console.log(res)
+        //     }).catch((error) => {
+        //         console.log(error)
+        //     });
     }
+    console.log('add unit', data)
     // "Cast to ObjectId failed for value "[object Object]" (type string) at path "_id" for model "Client""
     return (
-        <form onSubmit={handleSubmit} >
-            <div className="row">
-                <div className="form-group col-lg-4">
-                    <label>Street</label>
-                    <input type="text" value={formData.street} onChange={(e) => setFormData({ ...formData, street: e.target.value })} name="street" id="street" className="form-control" />
+        <div>
+            <section id='addUnitForm'>
+                <div className="">
+                    <button className="btn" onClick={handleShow}>Add Unit</button>
                 </div>
-                <div className="form-group col-lg-4">
-                    <label>City</label>
-                    <input type="text" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} name="city" id="city" className="form-control" />
-                </div>
-            </div>
-            <div className="form-group col-lg-8">
-                <label>Zip</label>
-                <input type="text" value={formData.zip} onChange={(e) => setFormData({ ...formData, zip: e.target.value })} name="zip" id="zip" className="form-control" />
-            </div>
-            <div className="form-group col-lg-8">
-                <label>Linear Feet</label>
-                <input type="text" value={formData.footage} onChange={(e) => setFormData({ ...formData, footage: e.target.value })} name="footage" id="footage" className="form-control" />
-            </div>
-            <div className="form-group col-lg-8">
-                <label>Description</label>
-                <input type="text" value={formData.unitDescription} onChange={(e) => setFormData({ ...formData, unitDescription: e.target.value })} name="unitDescription" id="unitDescription" className="form-control" />
-            </div>
-            <div className="form-group col-lg-8">
-                <label>Notes</label>
-                <input type="text" value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} name="notes" id="notes" className="form-control" />
-            </div>
-            <div className="form-group col-lg-8">
-                <label>Color Pattern</label>
-                <input type="text" value={formData.colorPattern} onChange={(e) => setFormData({ ...formData, colorPattern: e.target.value })} name="colorPattern" id="colorPattern" className="form-control" />
-            </div>
-            <div className="form-group">
-                <input type="submit" value="Add New Unit" className="my-2 btn btn-success btn-block" />
-            </div>
+            </section>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Body className="form">
 
-        </form>
+                    <form onSubmit={handleSubmit} >
+                        <div className="row">
+                            <div className="form-group col-lg-4">
+                                <label>Street</label>
+                                <input type="text" value={formData.street} onChange={(e) => setFormData({ ...formData, street: e.target.value })} name="street" id="street" className="form-control" />
+                            </div>
+                            <div className="form-group col-lg-4">
+                                <label>City</label>
+                                <input type="text" value={formData.city} onChange={(e) => setFormData({ ...formData, city: e.target.value })} name="city" id="city" className="form-control" />
+                            </div>
+                        </div>
+                        <div className="form-group col-lg-8">
+                            <label>Zip</label>
+                            <input type="text" value={formData.zip} onChange={(e) => setFormData({ ...formData, zip: e.target.value })} name="zip" id="zip" className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-8">
+                            <label>Linear Feet</label>
+                            <input type="text" value={formData.footage} onChange={(e) => setFormData({ ...formData, footage: e.target.value })} name="footage" id="footage" className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-8">
+                            <label>Description</label>
+                            <input type="text" value={formData.unitDescription} onChange={(e) => setFormData({ ...formData, unitDescription: e.target.value })} name="unitDescription" id="unitDescription" className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-8">
+                            <label>Notes</label>
+                            <input type="text" value={formData.notes} onChange={(e) => setFormData({ ...formData, notes: e.target.value })} name="notes" id="notes" className="form-control" />
+                        </div>
+                        <div className="form-group col-lg-8">
+                            <label>Color Pattern</label>
+                            <input type="text" value={formData.colorPattern} onChange={(e) => setFormData({ ...formData, colorPattern: e.target.value })} name="colorPattern" id="colorPattern" className="form-control" />
+                        </div>
+                        <div className="form-group">
+                            <input type="submit" value="Add New Unit" className="my-2 btn btn-success btn-block" />
+                        </div>
+
+                    </form>
+                </Modal.Body>
+
+            </Modal>
+        </div>
     )
 }
 

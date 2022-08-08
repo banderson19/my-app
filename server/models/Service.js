@@ -6,6 +6,7 @@ const ServiceSchema =  new Schema ({
     },
     serviceDate: {
         type: Date,
+        immutable: true,
         default: Date.now
     },
     notes: {

@@ -52,12 +52,12 @@ const ClientSchema = new Schema({
             ref: 'Unit'
         }
     ],
-    services: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Service'
-        }
-    ]
+    // services: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Service'
+    //     }
+    // ]
 })
 
 

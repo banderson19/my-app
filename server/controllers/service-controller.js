@@ -11,13 +11,15 @@ const serviceController = {
     // add service to Unit
     addService({params, body}, res) {
         console.log('service body', body);
-        console.log('service client id', params.unitId)
+        console.log('service client id', params)
+        res.send('body', params.unitID)
         Service.create(body)
             .then(({ _id }) => {
                 return Unit.findOneAndUpdate(
                     { _id: params.unitId }, 
                     { $push: { services: _id } }, 
                     { new: true }
+                    
                 );
             })
             .then(dbClientData => {

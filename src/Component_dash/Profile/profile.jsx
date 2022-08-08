@@ -62,6 +62,16 @@ const Profile = () => {
                 console.log('deleting error', err)
             })
     }
+    const addUnit = () => {
+        console.log('add new unit')
+        axios.post(`http://localthost:3001/api/clients`)
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.log('failed to add unit', err)
+            })
+    }
     const deleteUnit = (unitId) => {
         axios.delete(`http://localhost:3001/api/units/${clientId}/${unitId}`)
             .then(response => {
@@ -117,6 +127,7 @@ const Profile = () => {
                                     <button type="button" className="btn btn-outline-dark" size="sm" style={{ zIndex: "1" }} onClick={() => setEditClient(false)}>Edit Info</button>
                                     <button type="button" className="btn btn-outline-danger" size="sm" style={{ zIndex: "1" }} onClick={() => deleteClient()}>Delete Profile</button>
                                     <button className="btn btn-outline-success" size="sm" style={{ zIndex: "1" }}><AddService data={units}/></button>
+                                    <button type="button" className="btn btn-outline-info" size="sm" style={{ zIndex: "1" }} ><UnitAdd data={client}/></button>
                                     </div>
                                 </div>
                             </div>
