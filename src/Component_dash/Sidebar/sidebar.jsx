@@ -20,7 +20,7 @@ function Sidebar() {
       <div className="row">
         <div className="col">
           {!sidebarActive ?
-          <Link to='#' className='menu-bars'>
+          <Link to='#' className='menu-bars' style={{marginLeft: '-100px'}}>
             <FaIcons.FaBars onClick={toggleSidebar} />
           </Link>
           : ''}
@@ -38,7 +38,7 @@ function Sidebar() {
       {/* {sidebar ? */}
       <nav className={sidebarActive ? 'nav-menu active' : 'nav-menu'}>
         {/* <nav> */}
-        <Link to='#' className='menu-bars' style={{marginTop: "100px"}}onClick={toggleSidebar}>
+        <Link to='#' className='menu-bars' style={{marginTop: "-325px"}}onClick={toggleSidebar}>
           <AiIcons.AiOutlineClose />
         </Link>
         {links.map((item) => (
@@ -52,7 +52,7 @@ function Sidebar() {
                 key={link.name}
                 className="nav-text"
               >
-                <ul>{link.name}</ul>
+                <a>{link.name}</a>
               </NavLink>
               
             ))}
