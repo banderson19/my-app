@@ -25,7 +25,7 @@ function Sidebar() {
           </Link>
           : ''}
         </div>
-        <div className="col">
+        <div className="navbar">
           <header>
             <h1>Swift Holiday Lighting</h1>
           </header>
