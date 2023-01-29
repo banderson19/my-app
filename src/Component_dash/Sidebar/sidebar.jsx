@@ -54,10 +54,8 @@ function Sidebar() {
             <div>
             <h3 className="m-3 mt-4">Apps</h3>
               <div>
-              <Link to="/dashboard/calendar" className="nav-text"><AiIcons.AiFillCalendar className="me-2"/> Calendar</Link>
-              <Link to="/dashboard/kanban" className="nav-text"><BsIcons.BsKanbanFill className="me-2"/> Kanban</Link>
-
-
+                <Link to="/dashboard/calendar" className="nav-text"><AiIcons.AiFillCalendar className="me-2"/> Calendar</Link>
+                <Link to="/dashboard/kanban" className="nav-text"><BsIcons.BsKanbanFill className="me-2"/> Kanban</Link>
               </div>
             </div>
         </div>
