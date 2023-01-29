@@ -3,15 +3,15 @@ export const links = [
       title: 'Dashboard',
       links: [
         {
-          name: 'installs',
+          name: 'Jobs',
+          route: 'installs',
+
         //   icon: <AiOutlineShoppingCart />,
         },
         {
-          name: 'employees',
-        //   icon: <IoMdContacts />,
-        },
-        {
-          name: 'clientList ',
+          name: 'Clients',
+          route: 'clientList ',
+
         //   icon: <RiContactsLine />,
         }
       ],
@@ -21,17 +21,13 @@ export const links = [
       links: [
         {
           name: 'calendar',
+          route: 'calendar'
         //   icon: <AiOutlineCalendar />,
         },
         {
           name: 'kanban',
+          route: 'kanban'
         //   icon: <BsKanban />,
-        },
-        {
-            name: 'expenses'
-        },
-        {
-            name: 'budget'
         }
       ],
     }
