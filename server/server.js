@@ -5,12 +5,12 @@ const cors = require('cors');
 const app = express();
 
 //helps with sending proper request
-app.use(bodyParser.json({ limit: "30mb", extended: true}));
-app.use(bodyParser.urlencloded({ limit: "30mb", extended: true}));
+// app.use(bodyParser.json({ limit: "30mb", extended: true}));
+// app.use(bodyParser.urlencloded({ limit: "30mb", extended: true}));
 app.use(cors());
 
 // const CONNECTION_URL = ''
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
